@@ -1,5 +1,5 @@
 import 'package:education_app/src/models/tranche.dart';
-import 'package:education_app/src/screens/menus/payment/datails/details_screen.dart';
+import 'package:education_app/src/screens/menus/payment/details/details_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'category_list.dart';

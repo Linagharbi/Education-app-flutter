@@ -1,4 +1,4 @@
-import 'package:education_app/src/screens/menus/payment/bottom_navigation.dart';
+import 'package:education_app/src/screens/menus/payment/payment.dart';
 import 'package:education_app/src/screens/menus/results.dart';
 import 'package:education_app/src/screens/menus/time_table/time_table.dart';
 import 'package:education_app/src/screens/pages/notifications.dart';
@@ -34,7 +34,7 @@ class MenuChoice {
       case 25: //Discipline
         return ProfilePage();
       case 26: //Paiments
-        return MainScreen();
+        return Payment();
       case 27: //Contact
         return ProfilePage();
 
