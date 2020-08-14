@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "764724359600",
+    "firebase_url": "https://education-app-c687a.firebaseio.com",
+    "project_id": "education-app-c687a",
+    "storage_bucket": "education-app-c687a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764724359600:android:1779b803d196ea0324e675",
+        "android_client_info": {
+          "package_name": "com.elite2com.education_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764724359600-afvjrisgr70m05171t9r8b7v66jpilnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcRA0bHF5CMcp53uH5SukxrNIAowoI_ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764724359600-afvjrisgr70m05171t9r8b7v66jpilnq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

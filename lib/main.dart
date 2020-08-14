@@ -1,0 +1,47 @@
+import 'package:education_app/src/providers/logged_user.dart';
+import 'package:education_app/src/services/push_notification.dart';
+import 'package:flutter/material.dart';
+import 'package:overlay_support/overlay_support.dart';
+
+import 'package:education_app/src/screens/login_screen.dart';
+import 'package:education_app/src/screens/main_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:education_app/src/styles/theme.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final NotifService _notif = NotifService();
+
+  @override
+  void initState() {
+    super.initState();
+    _notif.initialise(); // Active notifications listener
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return OverlaySupport(
+      // Pass the loggedUser as a provider, if other providers
+      // exist, pass a MultiProvider with list providers
+      child: ChangeNotifierProvider<LoggedUser>(
+        create: (context) => LoggedUser(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "Flutter Login UI",
+          theme: basicTheme(),
+          home: LoginScreen(),
+          routes: {
+            "/login": (_) => LoginScreen(),
+            "/main": (_) => MainScreen(),
+          },
+        ),
+      ),
+    );
+  }
+}
