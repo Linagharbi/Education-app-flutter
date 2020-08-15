@@ -1,6 +1,7 @@
-import 'package:education_app/src/screens/menus/exams.dart';
-import 'package:education_app/src/screens/menus/payment.dart';
-import 'package:education_app/src/screens/menus/results.dart';
+import 'package:education_app/src/screens/menus/discipline/absences/absences.dart';
+import 'package:education_app/src/screens/menus/discipline/blames/blames.dart';
+import 'package:education_app/src/screens/menus/discipline/delays/delays.dart';
+import 'package:education_app/src/screens/menus/discipline/warnings/warnings.dart';
 import 'package:flutter/material.dart';
 
 class Discipline extends StatefulWidget {
@@ -12,10 +13,10 @@ class _DisciplineState extends State<Discipline> {
   int _currentIndex = 0;
 
   final tabs = [
-    Payment(),
-    Exams(),
-    Results(),
-    Payment(),
+    Delays(),
+    Absences(),
+    Blames(),
+    Warnings(),
   ];
 
   @override
@@ -38,7 +39,7 @@ class _DisciplineState extends State<Discipline> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
-            title: Text('Blames'),
+            title: Text('Blâmes'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.warning), //perm_identity
