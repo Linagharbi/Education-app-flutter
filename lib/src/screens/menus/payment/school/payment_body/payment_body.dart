@@ -1,11 +1,9 @@
 import 'package:education_app/src/models/tranche.dart';
-import 'package:education_app/src/screens/menus/payment/details/details_screen.dart';
+import 'package:education_app/src/screens/menus/payment/school/details/details_screen.dart';
+import 'package:education_app/src/screens/menus/payment/school/payment_body/product_card.dart';
 import 'package:flutter/material.dart';
 
-import 'category_list.dart';
-import 'tranche_card.dart';
-
-class Body extends StatelessWidget {
+class PaymentBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -13,8 +11,7 @@ class Body extends StatelessWidget {
       child: Column(
         children: <Widget>[
           // SearchBox(onChanged: (value) {}),
-          CategoryList(),
-          SizedBox(height: 20.0 / 8),
+          SizedBox(height: 45),
           Expanded(
             child: Stack(
               children: <Widget>[

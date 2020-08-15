@@ -1,9 +1,7 @@
 import 'package:education_app/src/models/tranche.dart';
-import 'package:education_app/src/screens/menus/payment/tranche/tranches_screen.dart';
+import 'package:education_app/src/screens/menus/payment/school/details/widgets/details_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import 'components/body.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Tranche tranche;
@@ -14,7 +12,7 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF035AA6),
       appBar: buildAppBar(context),
-      body: Body(
+      body: DetailsBody(
         tranche: tranche,
       ),
     );
@@ -28,8 +26,7 @@ class DetailsScreen extends StatelessWidget {
         padding: EdgeInsets.only(left: 20.0),
         icon: SvgPicture.asset("assets/icons/back.svg"),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ProductsScreen()));
+          Navigator.of(context).pop();
         },
       ),
       centerTitle: false,

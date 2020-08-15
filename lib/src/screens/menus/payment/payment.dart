@@ -1,5 +1,7 @@
-import 'package:education_app/src/screens/menus/payment/payment_body.dart';
-import 'package:education_app/src/screens/menus/payment/tranche/tranches_screen.dart';
+import 'package:education_app/src/screens/menus/payment/bus/bus_payment.dart';
+import 'package:education_app/src/screens/menus/payment/canteen/canteen_payment.dart';
+import 'package:education_app/src/screens/menus/payment/club/club_payment.dart';
+import 'package:education_app/src/screens/menus/payment/school/school_payment.dart';
 import 'package:flutter/material.dart';
 
 class Payment extends StatefulWidget {
@@ -11,10 +13,10 @@ class _PaymentState extends State<Payment> {
   int _currentIndex = 0;
 
   final tabs = [
-    ProductsScreen(),
-    PaymentBody(),
-    ProductsScreen(),
-    PaymentBody(),
+    SchoolPayment(),
+    CanteenPayment(),
+    BusPayment(),
+    ClubPayment(),
   ];
 
   @override
