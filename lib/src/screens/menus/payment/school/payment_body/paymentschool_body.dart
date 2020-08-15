@@ -1,9 +1,9 @@
 import 'package:education_app/src/models/tranche.dart';
-import 'package:education_app/src/screens/menus/payment/school/details/details_screen.dart';
-import 'package:education_app/src/screens/menus/payment/school/payment_body/product_card.dart';
+import 'package:education_app/src/screens/menus/payment/school/details/detailsschool_screen.dart';
+import 'package:education_app/src/screens/menus/payment/school/payment_body/school_card.dart';
 import 'package:flutter/material.dart';
 
-class PaymentBody extends StatelessWidget {
+class PaymentSchoolBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,14 +29,14 @@ class PaymentBody extends StatelessWidget {
                 ListView.builder(
                   // here we use our demo tranches list
                   itemCount: tranches.length,
-                  itemBuilder: (context, index) => ProductCard(
+                  itemBuilder: (context, index) => SchoolCard(
                     itemIndex: index,
                     tranche: tranches[index],
                     press: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailsScreen(
+                          builder: (context) => DetailsSchoolScreen(
                             tranche: tranches[index],
                           ),
                         ),

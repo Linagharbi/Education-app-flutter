@@ -1,8 +1,8 @@
 import 'package:education_app/src/models/tranche.dart';
 import 'package:flutter/material.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({
+class ClubCard extends StatelessWidget {
+  const ClubCard({
     Key key,
     this.itemIndex,
     this.tranche,

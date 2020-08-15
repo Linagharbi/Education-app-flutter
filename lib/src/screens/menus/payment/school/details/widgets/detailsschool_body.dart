@@ -1,10 +1,10 @@
 import 'package:education_app/src/models/tranche.dart';
 import 'package:flutter/material.dart';
 
-class DetailsBody extends StatelessWidget {
+class DetailsSchoolBody extends StatelessWidget {
   final Tranche tranche;
 
-  const DetailsBody({Key key, this.tranche}) : super(key: key);
+  const DetailsSchoolBody({Key key, this.tranche}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     // it provide us total height and width

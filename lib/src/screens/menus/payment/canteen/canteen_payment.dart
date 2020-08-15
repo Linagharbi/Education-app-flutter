@@ -1,22 +1,29 @@
+import 'package:education_app/src/screens/menus/payment/canteen/payment_body/paymentcanteen_body.dart';
+import 'package:education_app/src/screens/menus/payment/dropdownlist.dart';
 import 'package:flutter/material.dart';
 
 class CanteenPayment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Canteen",
-          style: TextStyle(fontSize: 25),
-        ),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          "Canteen Payment",
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 28),
-        ),
-      ),
+      appBar: buildAppBar(),
+      backgroundColor: Color(0xFF035AA6),
+      body: PaymentCanteenBody(),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      elevation: 0,
+      centerTitle: true,
+      backgroundColor: Colors.transparent,
+      title: Text('Cantine'),
+      actions: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(left: 53),
+          child: DropDownList(),
+        )
+      ],
     );
   }
 }

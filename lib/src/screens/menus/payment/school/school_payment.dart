@@ -1,6 +1,6 @@
-import 'package:education_app/src/screens/menus/payment/school/payment_body/payment_body.dart';
+import 'package:education_app/src/screens/menus/payment/dropdownlist.dart';
+import 'package:education_app/src/screens/menus/payment/school/payment_body/paymentschool_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SchoolPayment extends StatelessWidget {
   @override
@@ -8,7 +8,7 @@ class SchoolPayment extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       backgroundColor: Color(0xFF035AA6),
-      body: PaymentBody(),
+      body: PaymentSchoolBody(),
     );
   }
 
@@ -17,12 +17,12 @@ class SchoolPayment extends StatelessWidget {
       elevation: 0,
       centerTitle: true,
       backgroundColor: Colors.transparent,
-      title: Text('School'),
+      title: Text('Scolaire'),
       actions: <Widget>[
-        IconButton(
-          icon: SvgPicture.asset("assets/icons/notification.svg"),
-          onPressed: () {},
-        ),
+        Padding(
+          padding: EdgeInsets.only(left: 53),
+          child: DropDownList(),
+        )
       ],
     );
   }
