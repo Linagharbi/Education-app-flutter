@@ -1,3 +1,4 @@
+import 'package:education_app/src/screens/menus/events/CalendarEventPage.dart';
 import 'package:education_app/src/screens/menus/payment.dart';
 import 'package:education_app/src/screens/menus/results.dart';
 import 'package:education_app/src/screens/menus/time_table/time_table.dart';
@@ -28,7 +29,7 @@ class MenuChoice {
       case 22: //Exercices
         return ProfilePage();
       case 23: //Evénements
-        return ProfilePage();
+        return CalendarEventPage();
       case 24: //Résultats
         return ProfilePage();
       case 25: //Discipline

@@ -44,6 +44,11 @@ dependencies:
   intl: ^0.16.1
   ### UserSina Dependencies
 
+  ### UserLina Dependencies
+  table_calendar: ^2.2.3
+
+  ### UserLina Dependencies
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
