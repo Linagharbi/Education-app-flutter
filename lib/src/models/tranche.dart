@@ -19,14 +19,14 @@ List<Tranche> tranches = [
     id: 4,
     price: 3000,
     title: "Trimestre 2",
-    image: "assets/images/cheque.png",
-    description: "Tranche non payée ",
+    image: "assets/images/warning_pay.png",
+    description: "Tranche payée ",
   ),
   Tranche(
     id: 9,
     price: 2500,
     title: "Trimestre 3",
-    image: "assets/images/cheque.png",
+    image: "assets/images/not_paid.jpg",
     description: "Tranche non payée",
   ),
 ];
