@@ -35,14 +35,31 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
           colors: <Color>[gradientBegin, gradientEnd],
         ),
       ),
-      child: Text(
-        title,
-        style: TextStyle(
-          color: Colors.white,
-          letterSpacing: 1,
-          fontSize: 28,
-          fontWeight: FontWeight.w700,
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          Text(
+            title,
+            style: TextStyle(
+              color: Colors.white,
+              letterSpacing: 1,
+              fontSize: 28,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          // To keep the text centered
+          IconButton(
+            disabledColor: Colors.transparent,
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: null,
+          ),
+        ],
       ),
     );
   }
