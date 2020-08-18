@@ -45,7 +45,7 @@ class WarningDetail extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: EdgeInsets.only(bottom: 3),
                     child: RichText(
                       text: TextSpan(
                         children: [
@@ -70,7 +70,7 @@ class WarningDetail extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: EdgeInsets.only(bottom: 3),
                     child: RichText(
                       text: TextSpan(
                         children: [
@@ -95,7 +95,7 @@ class WarningDetail extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: EdgeInsets.only(bottom: 3),
                     child: RichText(
                       text: TextSpan(
                         children: [
@@ -120,7 +120,7 @@ class WarningDetail extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 5),
+                    padding: EdgeInsets.only(bottom: 3),
                     child: Text(
                       'Description détaillée: ',
                       style: TextStyle(

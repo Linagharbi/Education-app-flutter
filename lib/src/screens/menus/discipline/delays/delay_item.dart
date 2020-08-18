@@ -46,19 +46,128 @@ class DelayDetail extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(bottom: 3),
-                    child: Text("8:15  |  Durée: 15 minutes"),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Date: ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '17 August 2020',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 3),
-                    child: Text("Français"),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Heure: ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '8:15',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 3),
-                    child: Text("Mohsen Trabelsi"),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Durée: ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '15 minutes',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 3),
-                    child: Text("17 August 2020"),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Matière: ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Français',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 3),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Enseignant(e): ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Mohsen Trabelsi',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),

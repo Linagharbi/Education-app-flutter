@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AbsenceDetail extends StatelessWidget {
+class BlameDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +27,7 @@ class AbsenceDetail extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 5),
               child: Text(
-                "Maladie",
+                "Physiques et Chimie",
                 style: TextStyle(
                   color: Colors.red,
                   fontSize: 18,
@@ -50,6 +50,81 @@ class AbsenceDetail extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
+                            text: 'Motif: ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Bavardement en classe',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 3),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Nature: ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Quelque chose',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 3),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Enseignant(e): ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'Mohsen Trabelsi',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 3),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
                             text: 'Date: ',
                             style: TextStyle(
                               color: Colors.black,
@@ -63,56 +138,6 @@ class AbsenceDetail extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
                               fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 3),
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Période: ',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                            ),
-                          ),
-                          TextSpan(
-                            text: '8:00 à 17:00',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 3),
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Durée: ',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                            ),
-                          ),
-                          TextSpan(
-                            text: '7 heures',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 15,
                             ),
                           ),
                         ],
