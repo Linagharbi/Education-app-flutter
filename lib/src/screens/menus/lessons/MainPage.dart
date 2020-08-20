@@ -1,4 +1,5 @@
-import 'package:education_app/src/screens/menus/lessons/CoursePage.dart';
+import 'package:education_app/src/screens/menus/lessons/menu_down.dart';
+import 'package:education_app/src/screens/menus/lessons/search_bar.dart';
 import 'package:education_app/src/screens/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class MainPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: mainPage(),
       routes: {
-        '/coursePage': (context) => CoursePage(),
+        '/menu': (context) => Menu(),
       },
     );
   }
@@ -60,15 +61,17 @@ class _mainPageState extends State<mainPage> {
               ],
             ),
             SizedBox(
-              height: 25,
+              height: 15,
             ),
+            SearchBar(),
+            SizedBox(height: 1),
             // Text(
             //   'What do you want to learn today?',
             //   style: TextStyle(
             //       fontSize: 27, height: 1.3, fontWeight: FontWeight.w700),
             // ),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             Expanded(
               child: SingleChildScrollView(
@@ -112,35 +115,35 @@ class _mainPageState extends State<mainPage> {
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(
-                      Icons.subscriptions,
-                      color: Color(0xff2657ce),
-                      size: 30,
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.play_circle_filled,
-                      color: Color(0xff2657ce).withOpacity(0.5),
-                      size: 30,
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.account_circle,
-                      color: Color(0xff2657ce).withOpacity(0.5),
-                      size: 30,
-                    ),
-                  ),
-                ],
-              ),
-            )
+            // Container(
+            //   padding: EdgeInsets.all(20),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: <Widget>[
+            //       IconButton(
+            //         icon: Icon(
+            //           Icons.subscriptions,
+            //           color: Color(0xff2657ce),
+            //           size: 30,
+            //         ),
+            //       ),
+            //       IconButton(
+            //         icon: Icon(
+            //           Icons.play_circle_filled,
+            //           color: Color(0xff2657ce).withOpacity(0.5),
+            //           size: 30,
+            //         ),
+            //       ),
+            //       IconButton(
+            //         icon: Icon(
+            //           Icons.account_circle,
+            //           color: Color(0xff2657ce).withOpacity(0.5),
+            //           size: 30,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // )
           ],
         ),
       ),
@@ -231,7 +234,7 @@ class _mainPageState extends State<mainPage> {
   }
 
   void openCoursePage(String img, String title) {
-    Navigator.pushNamed(context, '/coursePage',
+    Navigator.pushNamed(context, '/menu',
         arguments: {'img': '$img', 'title': '$title'});
   }
 }

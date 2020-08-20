@@ -12,12 +12,13 @@ class SearchBar extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 30),
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.blueAccent,
         borderRadius: BorderRadius.circular(29.5),
       ),
       child: TextField(
         decoration: InputDecoration(
           hintText: "Search",
+          hintStyle: TextStyle(color: Colors.white),
           icon: SvgPicture.asset("assets/icons/search.svg"),
           border: InputBorder.none,
         ),

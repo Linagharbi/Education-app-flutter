@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CoursePage extends StatefulWidget {
+class ExercicePage extends StatefulWidget {
   @override
-  _CoursePageState createState() => _CoursePageState();
+  _ExercicePageState createState() => _ExercicePageState();
 }
 
-class _CoursePageState extends State<CoursePage> {
+class _ExercicePageState extends State<ExercicePage> {
   String chosenImg;
   String chosenTitle;
   @override
@@ -40,10 +40,10 @@ class _CoursePageState extends State<CoursePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              '\ Bienvenue au cours du $chosenTitle',
+              '\ Bienvenue au exercices du cours $chosenTitle',
               style: TextStyle(
                 color: Color(0xff2657ce),
-                fontSize: 22,
+                fontSize: 19,
               ),
             ),
             // Text(
@@ -80,7 +80,7 @@ class _CoursePageState extends State<CoursePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  'Cours',
+                  'Exercices',
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w600,
@@ -120,10 +120,10 @@ class _CoursePageState extends State<CoursePage> {
                 child: Column(
                   children: <Widget>[
                     productListing(
-                        'Introduction', 'Introduction du cours', 'active'),
-                    productListing('Lesson 1', 'Cours lesson 1', 'inactive'),
-                    productListing('Lesson 2', 'Cours lesson 2', 'inactive'),
-                    productListing('Lesson 2', 'Cours lesson 3', 'inactive')
+                        'Exercice 1', 'Introduction du cours', 'active'),
+                    productListing('Exercice 2', 'Cours lesson 1', 'active'),
+                    productListing('Exercice 3', 'Cours lesson 2', 'inactive'),
+                    productListing('Exercice 4', 'Cours lesson 3', 'inactive')
                   ],
                 ),
               ),
