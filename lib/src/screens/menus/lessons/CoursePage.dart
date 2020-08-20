@@ -40,17 +40,17 @@ class _CoursePageState extends State<CoursePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              '$chosenTitle',
+              '\ Bienvenue au cours du $chosenTitle',
               style: TextStyle(
                 color: Color(0xff2657ce),
-                fontSize: 27,
+                fontSize: 22,
               ),
             ),
-            Text(
-              'Sarah Sallemi',
-              style:
-                  TextStyle(color: Colors.black.withOpacity(0.6), fontSize: 20),
-            ),
+            // Text(
+            //   'Sarah Sallemi',
+            //   style:
+            //       TextStyle(color: Colors.black.withOpacity(0.6), fontSize: 20),
+            // ),
             SizedBox(
               height: 20,
             ),
@@ -63,7 +63,7 @@ class _CoursePageState extends State<CoursePage> {
               child: Hero(
                 tag: '$chosenImg',
                 child: Container(
-                  height: 200,
+                  height: 150,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(30)),

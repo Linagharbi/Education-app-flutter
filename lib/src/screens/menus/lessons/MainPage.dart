@@ -1,4 +1,5 @@
 import 'package:education_app/src/screens/menus/lessons/CoursePage.dart';
+import 'package:education_app/src/screens/pages/home.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -32,13 +33,25 @@ class _mainPageState extends State<mainPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
+                // SearchBox(onChanged: (value) {}),
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Color(0xff2657ce),
+                  ),
+                ),
+
                 Text(
-                  "Bonjour",
-                  style: TextStyle(fontSize: 20, color: Colors.blueAccent),
+                  "Bonjour , voici votre cours",
+                  style: TextStyle(fontSize: 18, color: Colors.blueAccent),
                 ),
                 Container(
-                  height: 40,
-                  width: 40,
+                  height: 25,
+                  width: 25,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
@@ -49,11 +62,11 @@ class _mainPageState extends State<mainPage> {
             SizedBox(
               height: 25,
             ),
-            Text(
-              'What do you want to learn today?',
-              style: TextStyle(
-                  fontSize: 27, height: 1.3, fontWeight: FontWeight.w700),
-            ),
+            // Text(
+            //   'What do you want to learn today?',
+            //   style: TextStyle(
+            //       fontSize: 27, height: 1.3, fontWeight: FontWeight.w700),
+            // ),
             SizedBox(
               height: 10,
             ),
@@ -67,10 +80,10 @@ class _mainPageState extends State<mainPage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          courseWidget('Trimestre 1', 'Mathématique', 'img1',
+                          courseWidget('Trimestre 1', 'Math', 'img1',
                               Color(0xffff6a65), Color(0xffff5954)),
                           SizedBox(
-                            height: 20,
+                            height: 18,
                           ),
                           courseWidget('Trimestre 1', 'Physique', 'img2',
                               Color(0xffe9eefa), Colors.white),
@@ -85,10 +98,10 @@ class _mainPageState extends State<mainPage> {
                           SizedBox(
                             height: 50,
                           ),
-                          courseWidget('Trimestre 1', 'Programmation', 'img3',
+                          courseWidget('Trimestre 1', 'Arabe', 'img3',
                               Color(0xffe9eefa), Colors.white),
                           SizedBox(
-                            height: 20,
+                            height: 18,
                           ),
                           courseWidget('Trimestre 1', 'Anglais', 'img4',
                               Color(0xffbdcddfa), Color(0xffcedaff)),
@@ -108,21 +121,21 @@ class _mainPageState extends State<mainPage> {
                     icon: Icon(
                       Icons.subscriptions,
                       color: Color(0xff2657ce),
-                      size: 40,
+                      size: 30,
                     ),
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.play_circle_filled,
                       color: Color(0xff2657ce).withOpacity(0.5),
-                      size: 40,
+                      size: 30,
                     ),
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.account_circle,
                       color: Color(0xff2657ce).withOpacity(0.5),
-                      size: 40,
+                      size: 30,
                     ),
                   ),
                 ],
