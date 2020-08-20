@@ -1,7 +1,7 @@
+import 'package:education_app/src/screens/menus/lessons/MainPage.dart';
 import 'package:education_app/src/screens/menus/payment.dart';
 import 'package:education_app/src/screens/menus/results.dart';
 import 'package:education_app/src/screens/menus/time_table/time_table.dart';
-import 'package:education_app/src/screens/pages/notifications.dart';
 import 'package:education_app/src/screens/pages/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class MenuChoice {
       case 10: //Emlpoi
         return TimeTable();
       case 11: //Lessons
-        return NotificationsPage();
+        return MainPage();
       case 12: //Exercices
         return ProfilePage();
       case 13: //Evénements

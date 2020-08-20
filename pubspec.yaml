@@ -69,4 +69,7 @@ flutter:
     - family: OpenSans
       fonts:
         - asset: assets/fonts/OpenSans.ttf
+    - family: avenir
+      fonts:
+        - asset: assets/fonts/avenir.ttf
   # UserSina Fonts
