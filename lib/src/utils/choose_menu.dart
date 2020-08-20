@@ -24,7 +24,7 @@ class MenuChoice {
       case 20: //Emploi
         return TimeTable();
       case 21: //Lessons
-        return ProfilePage();
+        return MainPage();
       case 22: //Exercices
         return ProfilePage();
       case 23: //Evénements
@@ -42,7 +42,7 @@ class MenuChoice {
       case 31: //Emploi
         return ProfilePage();
       case 32: //Cours
-        return ProfilePage();
+        return MainPage();
       case 33: //Exercices
         return ProfilePage();
       case 34: //Liste d'élèves
