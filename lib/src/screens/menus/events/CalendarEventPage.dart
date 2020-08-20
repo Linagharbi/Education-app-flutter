@@ -93,7 +93,7 @@ class _calendarPageState extends State<calendarPage> {
                       Row(
                         children: [
                           Text(
-                            "18 August 2020",
+                            "21 August 2020",
                             style: TextStyle(color: Colors.grey),
                           )
                         ],

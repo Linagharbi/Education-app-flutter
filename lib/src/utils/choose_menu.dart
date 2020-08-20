@@ -17,7 +17,7 @@ class MenuChoice {
       case 12: //Exercices
         return ProfilePage();
       case 13: //Evénements
-        return ProfilePage();
+        return CalendarEventPage();
       case 14: //Résultats
         return Results();
 
