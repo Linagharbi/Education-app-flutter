@@ -27,7 +27,7 @@ class _LessonsPageState extends State<LessonsPage> {
     return Scaffold(
       backgroundColor: Color(0xfff4f6fd),
       body: Container(
-        padding: EdgeInsets.only(top: 40, left: 30, right: 30),
+        padding: EdgeInsets.only(top: 30, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -69,10 +69,9 @@ class _LessonsPageState extends State<LessonsPage> {
               ],
             ),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             SearchBar(),
-            SizedBox(height: 1),
             // Text(
             //   'What do you want to learn today?',
             //   style: TextStyle(
