@@ -181,7 +181,24 @@ class _ExercicePageState extends State<ExercicePage> {
                   style: TextStyle(fontSize: 16, color: Colors.grey),
                 )
               ],
-            )
+            ),
+            SizedBox(
+              width: 100,
+            ),
+            Container(
+              width: 25,
+              height: 25,
+              // decoration: BoxDecoration(
+              //   color: Color(0xff2657ce),
+              //   borderRadius: BorderRadius.all(Radius.circular(17)),
+              // ),
+              child: IconButton(
+                icon: Icon(
+                  Icons.picture_as_pdf,
+                  color: Color(0xff2657ce),
+                ),
+              ),
+            ),
           ],
         ),
         Center(
