@@ -8,11 +8,15 @@ class ExercicePage extends StatefulWidget {
 class _ExercicePageState extends State<ExercicePage> {
   String chosenImg;
   String chosenTitle;
+  String chosenTeacher;
+
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
     chosenImg = arguments['img'];
     chosenTitle = arguments['title'];
+    chosenTeacher = arguments['teacher'];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -43,7 +47,7 @@ class _ExercicePageState extends State<ExercicePage> {
               '\ Bienvenue au exercices du cours $chosenTitle',
               style: TextStyle(
                 color: Color(0xff2657ce),
-                fontSize: 19,
+                fontSize: 18,
               ),
             ),
             // Text(
@@ -104,7 +108,7 @@ class _ExercicePageState extends State<ExercicePage> {
                         ),
                       ),
                       Text(
-                        "Mme Saadi",
+                        "$chosenTeacher",
                         style: TextStyle(color: Colors.black.withOpacity(0.7)),
                       )
                     ],
@@ -169,12 +173,12 @@ class _ExercicePageState extends State<ExercicePage> {
                 Text(
                   '$title',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                   ),
                 ),
                 Text(
                   '$info',
-                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
                 )
               ],
             )

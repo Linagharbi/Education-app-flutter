@@ -8,11 +8,14 @@ class CoursePage extends StatefulWidget {
 class _CoursePageState extends State<CoursePage> {
   String chosenImg;
   String chosenTitle;
+  String chosenTeacher;
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
     chosenImg = arguments['img'];
     chosenTitle = arguments['title'];
+    chosenTeacher = arguments['teacher'];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -43,7 +46,7 @@ class _CoursePageState extends State<CoursePage> {
               '\ Bienvenue au cours du $chosenTitle',
               style: TextStyle(
                 color: Color(0xff2657ce),
-                fontSize: 22,
+                fontSize: 18,
               ),
             ),
             // Text(
@@ -104,7 +107,7 @@ class _CoursePageState extends State<CoursePage> {
                         ),
                       ),
                       Text(
-                        "Mme Saadi",
+                        "$chosenTeacher",
                         style: TextStyle(color: Colors.black.withOpacity(0.7)),
                       )
                     ],
@@ -123,7 +126,7 @@ class _CoursePageState extends State<CoursePage> {
                         'Introduction', 'Introduction du cours', 'active'),
                     productListing('Lesson 1', 'Cours lesson 1', 'inactive'),
                     productListing('Lesson 2', 'Cours lesson 2', 'inactive'),
-                    productListing('Lesson 2', 'Cours lesson 3', 'inactive')
+                    productListing('Lesson 3', 'Cours lesson 3', 'inactive')
                   ],
                 ),
               ),
@@ -169,12 +172,12 @@ class _CoursePageState extends State<CoursePage> {
                 Text(
                   '$title',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                   ),
                 ),
                 Text(
                   '$info',
-                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
                 )
               ],
             )

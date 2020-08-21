@@ -47,8 +47,8 @@ class _mainPageState extends State<mainPage> {
                 ),
 
                 Text(
-                  "Bonjour , voici votre cours",
-                  style: TextStyle(fontSize: 18, color: Colors.blueAccent),
+                  "Cours",
+                  style: TextStyle(fontSize: 20, color: Colors.blueAccent),
                 ),
                 Container(
                   height: 25,
@@ -83,12 +83,12 @@ class _mainPageState extends State<mainPage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          courseWidget('Trimestre 1', 'Math', 'img1',
+                          courseWidget('Mme Saadi Sara', 'Math', 'img1',
                               Color(0xffff6a65), Color(0xffff5954)),
                           SizedBox(
                             height: 18,
                           ),
-                          courseWidget('Trimestre 1', 'Physique', 'img2',
+                          courseWidget('Mr Salmi Tarek ', 'Physique', 'img2',
                               Color(0xffe9eefa), Colors.white),
                         ],
                       ),
@@ -101,12 +101,12 @@ class _mainPageState extends State<mainPage> {
                           SizedBox(
                             height: 50,
                           ),
-                          courseWidget('Trimestre 1', 'Arabe', 'img3',
+                          courseWidget('Mme Nazi Rim', 'Arabe', 'img3',
                               Color(0xffe9eefa), Colors.white),
                           SizedBox(
                             height: 18,
                           ),
-                          courseWidget('Trimestre 1', 'Anglais', 'img4',
+                          courseWidget('Mr Gharbi Salih', 'Anglais', 'img4',
                               Color(0xffbdcddfa), Color(0xffcedaff)),
                         ],
                       ),
@@ -150,17 +150,17 @@ class _mainPageState extends State<mainPage> {
     );
   }
 
-  Container courseWidget(String category, String title, String img,
-      Color categoryColor, Color bgColor) {
+  Container courseWidget(String teacher, String title, String img,
+      Color teacherColor, Color bgColor) {
     return Container(
-      padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
+      padding: EdgeInsets.only(top: 20, left: 13, right: 13, bottom: 10),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.all(Radius.circular(30)),
       ),
       child: InkWell(
         onTap: () {
-          openCoursePage('$img', '$title');
+          openCoursePage('$teacher', '$img', '$title');
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,13 +168,13 @@ class _mainPageState extends State<mainPage> {
             Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: categoryColor,
+                color: teacherColor,
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Text(
-                '$category',
+                '$teacher',
                 style: TextStyle(
-                    color: (categoryColor == Color(0xffe9eefa)
+                    color: (teacherColor == Color(0xffe9eefa)
                         ? Color(0xff2657ce)
                         : Colors.white)),
               ),
@@ -188,7 +188,7 @@ class _mainPageState extends State<mainPage> {
                 color: (bgColor == Color(0xffff5954))
                     ? Colors.white
                     : Colors.black,
-                fontSize: 20,
+                fontSize: 18,
                 height: 1,
               ),
             ),
@@ -233,8 +233,8 @@ class _mainPageState extends State<mainPage> {
     );
   }
 
-  void openCoursePage(String img, String title) {
+  void openCoursePage(String teacher, String img, String title) {
     Navigator.pushNamed(context, '/menu',
-        arguments: {'img': '$img', 'title': '$title'});
+        arguments: {'teacher': '$teacher', 'img': '$img', 'title': '$title'});
   }
 }
