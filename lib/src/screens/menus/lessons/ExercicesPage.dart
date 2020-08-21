@@ -123,11 +123,14 @@ class _ExercicePageState extends State<ExercicePage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
+                    productListing('Exercice 1', 'Introduction du cours',
+                        '12/05/2020', 'active'),
                     productListing(
-                        'Exercice 1', 'Introduction du cours', 'active'),
-                    productListing('Exercice 2', 'Cours lesson 1', 'active'),
-                    productListing('Exercice 3', 'Cours lesson 2', 'inactive'),
-                    productListing('Exercice 4', 'Cours lesson 3', 'inactive')
+                        'Exercice 2', 'Cours lesson 1', '19/05/2020', 'active'),
+                    productListing('Exercice 3', 'Cours lesson 2', '02/06/2020',
+                        'inactive'),
+                    productListing('Exercice 4', 'Cours lesson 3', '10/06/2020',
+                        'inactive')
                   ],
                 ),
               ),
@@ -138,7 +141,8 @@ class _ExercicePageState extends State<ExercicePage> {
     );
   }
 
-  Column productListing(String title, String info, String activeOrInactive) {
+  Column productListing(
+      String title, String info, String date, String activeOrInactive) {
     return Column(
       children: <Widget>[
         SizedBox(
@@ -179,6 +183,13 @@ class _ExercicePageState extends State<ExercicePage> {
                 Text(
                   '$info',
                   style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  '$date',
+                  style: TextStyle(fontSize: 13, color: Colors.grey),
                 )
               ],
             ),

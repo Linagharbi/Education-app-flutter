@@ -122,9 +122,10 @@ class _DevoirsPageState extends State<DevoirsPage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    productListing('Devoir 1', 'Devoir de control', 'active'),
-                    productListing(
-                        'Devoir 2', 'Devoir de synthése ', 'inactive'),
+                    productListing('Devoir 1', 'Devoir de control',
+                        '17/06/2020', 'active'),
+                    productListing('Devoir 2', 'Devoir de synthése ',
+                        '22/06/2020', 'inactive'),
                   ],
                 ),
               ),
@@ -135,7 +136,8 @@ class _DevoirsPageState extends State<DevoirsPage> {
     );
   }
 
-  Column productListing(String title, String info, String activeOrInactive) {
+  Column productListing(
+      String title, String info, String date, String activeOrInactive) {
     return Column(
       children: <Widget>[
         SizedBox(
@@ -176,11 +178,20 @@ class _DevoirsPageState extends State<DevoirsPage> {
                 Text(
                   '$info',
                   style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  activeOrInactive == 'active'
+                      ? '\ Remis le $date'
+                      : '\ à remettre avant le $date',
+                  style: TextStyle(fontSize: 13, color: Colors.grey),
                 )
               ],
             ),
             SizedBox(
-              width: 100,
+              width: 60,
             ),
             Container(
               width: 25,
