@@ -47,7 +47,7 @@ class _ExercicePageState extends State<ExercicePage> {
               '\ Bienvenue au exercices du cours $chosenTitle',
               style: TextStyle(
                 color: Color(0xff2657ce),
-                fontSize: 18,
+                fontSize: 16,
               ),
             ),
             // Text(

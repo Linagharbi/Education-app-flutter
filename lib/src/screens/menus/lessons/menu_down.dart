@@ -1,4 +1,5 @@
 import 'package:education_app/src/screens/menus/lessons/CoursePage.dart';
+import 'package:education_app/src/screens/menus/lessons/DevoirsPage.dart';
 import 'package:education_app/src/screens/menus/lessons/ExercicesPage.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class _MenuState extends State<Menu> {
   final tabs = [
     CoursePage(),
     ExercicePage(),
+    DevoirsPage(),
     // CoursePage(),
   ];
 
@@ -26,11 +28,11 @@ class _MenuState extends State<Menu> {
         currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.collections_bookmark),
             title: Text('Cours'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.work),
+            icon: Icon(Icons.content_paste),
             title: Text('Exercices'),
           ),
           BottomNavigationBarItem(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CoursePage extends StatefulWidget {
+class DevoirsPage extends StatefulWidget {
   @override
-  _CoursePageState createState() => _CoursePageState();
+  _DevoirsPageState createState() => _DevoirsPageState();
 }
 
-class _CoursePageState extends State<CoursePage> {
+class _DevoirsPageState extends State<DevoirsPage> {
   String chosenImg;
   String chosenTitle;
   String chosenTeacher;
@@ -43,10 +43,10 @@ class _CoursePageState extends State<CoursePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              '\ Bienvenue au cours du $chosenTitle',
+              '\ Bienvenue, consultez vos devoirs du cours $chosenTitle',
               style: TextStyle(
                 color: Color(0xff2657ce),
-                fontSize: 16,
+                fontSize: 14,
               ),
             ),
             // Text(
@@ -83,7 +83,7 @@ class _CoursePageState extends State<CoursePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  'Cours',
+                  'Devoirs',
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w600,
@@ -122,11 +122,9 @@ class _CoursePageState extends State<CoursePage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
+                    productListing('Devoir 1', 'Devoir de control', 'active'),
                     productListing(
-                        'Introduction', 'Introduction du cours', 'active'),
-                    productListing('Lesson 1', 'Cours lesson 1', 'inactive'),
-                    productListing('Lesson 2', 'Cours lesson 2', 'inactive'),
-                    productListing('Lesson 3', 'Cours lesson 3', 'inactive')
+                        'Devoir 2', 'Devoir de synthése ', 'inactive'),
                   ],
                 ),
               ),
