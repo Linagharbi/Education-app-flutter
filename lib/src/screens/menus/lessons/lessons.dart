@@ -3,12 +3,12 @@ import 'package:education_app/src/screens/menus/lessons/search_bar.dart';
 import 'package:education_app/src/screens/pages/home.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatelessWidget {
+class Lessons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: mainPage(),
+      home: LessonsPage(),
       routes: {
         '/menu': (context) => Menu(),
       },
@@ -16,12 +16,12 @@ class MainPage extends StatelessWidget {
   }
 }
 
-class mainPage extends StatefulWidget {
+class LessonsPage extends StatefulWidget {
   @override
-  _mainPageState createState() => _mainPageState();
+  _LessonsPageState createState() => _LessonsPageState();
 }
 
-class _mainPageState extends State<mainPage> {
+class _LessonsPageState extends State<LessonsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,27 +37,35 @@ class _mainPageState extends State<mainPage> {
                 // SearchBox(onChanged: (value) {}),
                 IconButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                    );
                   },
                   icon: Icon(
                     Icons.arrow_back_ios,
                     color: Color(0xff2657ce),
                   ),
                 ),
-
                 Text(
                   "Cours",
-                  style: TextStyle(fontSize: 20, color: Colors.blueAccent),
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.blueAccent,
+                  ),
                 ),
                 Container(
                   height: 25,
                   width: 25,
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/profilePic.png'))),
-                )
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/profilePic.png'),
+                    ),
+                  ),
+                ),
               ],
             ),
             SizedBox(
@@ -83,13 +91,23 @@ class _mainPageState extends State<mainPage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          courseWidget('Mme Saadi Sara', 'Math', 'img1',
-                              Color(0xffff6a65), Color(0xffff5954)),
+                          courseWidget(
+                            'Mme Saadi Sara',
+                            'Math',
+                            'img1',
+                            Color(0xffff6a65),
+                            Color(0xffff5954),
+                          ),
                           SizedBox(
                             height: 18,
                           ),
-                          courseWidget('Mr Salmi Tarek ', 'Physique', 'img2',
-                              Color(0xffe9eefa), Colors.white),
+                          courseWidget(
+                            'Mr Salmi Tarek ',
+                            'Physique',
+                            'img2',
+                            Color(0xffe9eefa),
+                            Colors.white,
+                          ),
                         ],
                       ),
                     ),
@@ -101,13 +119,23 @@ class _mainPageState extends State<mainPage> {
                           SizedBox(
                             height: 50,
                           ),
-                          courseWidget('Mme Nazi Rim', 'Arabe', 'img3',
-                              Color(0xffe9eefa), Colors.white),
+                          courseWidget(
+                            'Mme Nazi Rim',
+                            'Arabe',
+                            'img3',
+                            Color(0xffe9eefa),
+                            Colors.white,
+                          ),
                           SizedBox(
                             height: 18,
                           ),
-                          courseWidget('Mr Gharbi Salih', 'Anglais', 'img4',
-                              Color(0xffbdcddfa), Color(0xffcedaff)),
+                          courseWidget(
+                            'Mr Gharbi Salih',
+                            'Anglais',
+                            'img4',
+                            Color(0xffbdcddfa),
+                            Color(0xffcedaff),
+                          ),
                         ],
                       ),
                     )
@@ -211,7 +239,7 @@ class _mainPageState extends State<mainPage> {
                         ? Colors.white.withOpacity(0.5)
                         : Color(0xff2657ce).withOpacity(0.5),
                   ),
-                )
+                ),
               ],
             ),
             SizedBox(
@@ -222,9 +250,12 @@ class _mainPageState extends State<mainPage> {
               child: Container(
                 height: 80,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage('assets/images/$img.png'),
-                )),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/images/$img.png',
+                    ),
+                  ),
+                ),
               ),
             )
           ],
@@ -234,7 +265,10 @@ class _mainPageState extends State<mainPage> {
   }
 
   void openCoursePage(String teacher, String img, String title) {
-    Navigator.pushNamed(context, '/menu',
-        arguments: {'teacher': '$teacher', 'img': '$img', 'title': '$title'});
+    Navigator.pushNamed(
+      context,
+      '/menu',
+      arguments: {'teacher': '$teacher', 'img': '$img', 'title': '$title'},
+    );
   }
 }

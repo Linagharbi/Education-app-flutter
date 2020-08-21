@@ -69,10 +69,11 @@ class _DevoirsPageState extends State<DevoirsPage> {
                   height: 150,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/$chosenImg.png'),
-                      )),
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/$chosenImg.png'),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -90,9 +91,14 @@ class _DevoirsPageState extends State<DevoirsPage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
                     color: Color(0xffd3defa),
                   ),
                   child: Row(
@@ -100,6 +106,7 @@ class _DevoirsPageState extends State<DevoirsPage> {
                       Container(
                         width: 35,
                         child: IconButton(
+                          onPressed: () {},
                           icon: Icon(
                             Icons.people,
                             color: Colors.blue,
@@ -108,7 +115,9 @@ class _DevoirsPageState extends State<DevoirsPage> {
                       ),
                       Text(
                         "$chosenTeacher",
-                        style: TextStyle(color: Colors.black.withOpacity(0.7)),
+                        style: TextStyle(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
                       )
                     ],
                   ),
@@ -155,6 +164,7 @@ class _DevoirsPageState extends State<DevoirsPage> {
                 borderRadius: BorderRadius.all(Radius.circular(17)),
               ),
               child: IconButton(
+                onPressed: () {},
                 icon: Icon(
                   Icons.bookmark,
                   color: (activeOrInactive == 'active')
@@ -201,6 +211,7 @@ class _DevoirsPageState extends State<DevoirsPage> {
               //   borderRadius: BorderRadius.all(Radius.circular(17)),
               // ),
               child: IconButton(
+                onPressed: () {},
                 icon: Icon(
                   Icons.picture_as_pdf,
                   color: Color(0xff2657ce),

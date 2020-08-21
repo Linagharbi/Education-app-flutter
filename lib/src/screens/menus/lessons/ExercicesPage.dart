@@ -93,7 +93,9 @@ class _ExercicePageState extends State<ExercicePage> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
                     color: Color(0xffd3defa),
                   ),
                   child: Row(
@@ -101,6 +103,7 @@ class _ExercicePageState extends State<ExercicePage> {
                       Container(
                         width: 35,
                         child: IconButton(
+                          onPressed: () {},
                           icon: Icon(
                             Icons.people,
                             color: Colors.blue,
@@ -109,7 +112,9 @@ class _ExercicePageState extends State<ExercicePage> {
                       ),
                       Text(
                         "$chosenTeacher",
-                        style: TextStyle(color: Colors.black.withOpacity(0.7)),
+                        style: TextStyle(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
                       )
                     ],
                   ),
@@ -157,9 +162,12 @@ class _ExercicePageState extends State<ExercicePage> {
                 color: (activeOrInactive == 'active')
                     ? Color(0xff2657ce)
                     : Color(0xffd3defa),
-                borderRadius: BorderRadius.all(Radius.circular(17)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(17),
+                ),
               ),
               child: IconButton(
+                onPressed: () {},
                 icon: Icon(
                   Icons.bookmark,
                   color: (activeOrInactive == 'active')
@@ -204,6 +212,7 @@ class _ExercicePageState extends State<ExercicePage> {
               //   borderRadius: BorderRadius.all(Radius.circular(17)),
               // ),
               child: IconButton(
+                onPressed: () {},
                 icon: Icon(
                   Icons.picture_as_pdf,
                   color: Color(0xff2657ce),

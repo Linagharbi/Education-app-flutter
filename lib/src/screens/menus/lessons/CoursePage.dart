@@ -23,7 +23,9 @@ class _CoursePageState extends State<CoursePage> {
         leading: Container(
           padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ),
             // color: Color(0xffe1eaff),
           ),
           child: IconButton(
@@ -60,7 +62,9 @@ class _CoursePageState extends State<CoursePage> {
             Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(30),
+                ),
                 color: Color(0xffff5954),
               ),
               child: Hero(
@@ -69,10 +73,11 @@ class _CoursePageState extends State<CoursePage> {
                   height: 150,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/$chosenImg.png'),
-                      )),
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/$chosenImg.png'),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -100,6 +105,7 @@ class _CoursePageState extends State<CoursePage> {
                       Container(
                         width: 35,
                         child: IconButton(
+                          onPressed: () {},
                           icon: Icon(
                             Icons.people,
                             color: Colors.blue,
@@ -108,7 +114,9 @@ class _CoursePageState extends State<CoursePage> {
                       ),
                       Text(
                         "$chosenTeacher",
-                        style: TextStyle(color: Colors.black.withOpacity(0.7)),
+                        style: TextStyle(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
                       )
                     ],
                   ),
@@ -128,8 +136,8 @@ class _CoursePageState extends State<CoursePage> {
                         'inactive'),
                     productListing('Chapitre 2', 'Cours lesson 2', '20/05/2020',
                         'inactive'),
-                    productListing(
-                        'Chapitre 3', 'Cours lesson 3', '5/06/2020', 'inactive')
+                    productListing('Chapitre 3', 'Cours lesson 3', '5/06/2020',
+                        'inactive'),
                   ],
                 ),
               ),
@@ -159,6 +167,7 @@ class _CoursePageState extends State<CoursePage> {
                 borderRadius: BorderRadius.all(Radius.circular(17)),
               ),
               child: IconButton(
+                onPressed: () {},
                 icon: Icon(
                   Icons.bookmark,
                   color: (activeOrInactive == 'active')
@@ -203,6 +212,7 @@ class _CoursePageState extends State<CoursePage> {
               //   borderRadius: BorderRadius.all(Radius.circular(17)),
               // ),
               child: IconButton(
+                onPressed: () {},
                 icon: Icon(
                   Icons.picture_as_pdf,
                   color: Color(0xff2657ce),
