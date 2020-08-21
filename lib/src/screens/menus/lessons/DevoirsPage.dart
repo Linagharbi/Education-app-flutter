@@ -90,7 +90,7 @@ class _DevoirsPageState extends State<DevoirsPage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 1),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                     color: Color(0xffd3defa),
