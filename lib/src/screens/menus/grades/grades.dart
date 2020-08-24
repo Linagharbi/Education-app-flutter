@@ -6,11 +6,6 @@ class Grades extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      // appBar: GradesAppBar(
-      //   title: "Grades",
-      //   gradientBegin: Colors.red[200],
-      //   gradientEnd: Colors.red,
-      // ),
       body: Stack(
         // fit: StackFit.expand,
         overflow: Overflow.visible,
@@ -20,84 +15,106 @@ class Grades extends StatelessWidget {
             top: 0.0,
             left: 0.0,
             child: GradesAppBar(
-              title: "Grades",
+              title: "Notes",
               gradientBegin: Colors.red[200],
               gradientEnd: Colors.red,
             ),
           ),
           Positioned(
-            top: 115,
-            left: MediaQuery.of(context).size.width / 2 -
-                MediaQuery.of(context).size.width * 0.9 / 2,
+            top: 110,
+            left: 20,
+            right: 20,
             child: Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width * 0.9,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              // width: set by left & right
               height: 50,
+              padding: EdgeInsets.all(10),
+              child: Text("Hello"),
             ),
           ),
           Positioned(
-            top: 180,
-            left: MediaQuery.of(context).size.width / 2 -
-                MediaQuery.of(context).size.width * 0.9 / 2,
+            top: 175,
+            left: 20,
+            right: 20,
+            bottom: 20,
             child: Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: DataTable(
-                headingRowHeight: 0,
-                columns: [
-                  DataColumn(label: Text('')),
-                  DataColumn(label: Text('')),
-                ],
-                rows: [
-                  DataRow(cells: [
-                    DataCell(Text('Dash')),
-                    DataCell(Text('2018')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Gopher')),
-                    DataCell(Text('2009')),
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text('Last line')),
-                    DataCell(Text('1980')),
-                  ]),
-                ],
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              // width: set by left & right
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: CustomScrollView(
+                  slivers: <Widget>[
+                    SliverList(
+                      delegate: SliverChildListDelegate([
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: DataTable(
+                            headingRowHeight: 0,
+                            columnSpacing: 5,
+                            columns: [
+                              DataColumn(label: Text('')),
+                              DataColumn(label: Text('')),
+                              DataColumn(label: Text('')),
+                              DataColumn(label: Text('')),
+                            ],
+                            rows: [
+                              DataRow(
+                                cells: [
+                                  DataCell(
+                                    Center(
+                                      child: Text(
+                                        '1 Mars',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  DataCell(
+                                    Center(
+                                      child: Text(
+                                        'Mathematiques',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  DataCell(
+                                    Center(
+                                      child: Text(
+                                        '19.5',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  DataCell(
+                                    Center(
+                                      child: Text(
+                                        'T.Bien',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ]),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
