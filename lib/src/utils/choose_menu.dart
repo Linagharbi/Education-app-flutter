@@ -1,3 +1,4 @@
+import 'package:education_app/src/screens/menus/grades/grades.dart';
 import 'package:education_app/src/screens/menus/payment.dart';
 import 'package:education_app/src/screens/menus/results.dart';
 import 'package:education_app/src/screens/menus/time_table/time_table.dart';
@@ -13,8 +14,8 @@ class MenuChoice {
         return TimeTable();
       case 11: //Lessons
         return NotificationsPage();
-      case 12: //Exercices
-        return ProfilePage();
+      case 12: //Notes
+        return Grades();
       case 13: //Evénements
         return ProfilePage();
       case 14: //Résultats
@@ -25,8 +26,8 @@ class MenuChoice {
         return TimeTable();
       case 21: //Lessons
         return ProfilePage();
-      case 22: //Exercices
-        return ProfilePage();
+      case 22: //Notes
+        return Grades();
       case 23: //Evénements
         return ProfilePage();
       case 24: //Résultats
