@@ -1,7 +1,77 @@
+import 'package:education_app/src/models/subject.dart';
 import 'package:education_app/src/screens/menus/grades/grades_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class Grades extends StatelessWidget {
+  // ignore: todo
+  // TODO: Use Fetched List
+  final List<Subject> mySubjects = [
+    Subject(
+      date: '1 Mars',
+      name: "Controle 1",
+      amount: 13.25,
+    ),
+    Subject(
+      date: '15 Mars',
+      name: "Controle 2",
+      amount: 16,
+    ),
+    Subject(
+      date: '1 Mars',
+      name: "Synthèse 1",
+      amount: 19.75,
+    ),
+    Subject(
+      date: '15 Mars',
+      name: "Synthèse 2",
+      amount: 20,
+    ),
+  ];
+
+  Widget _buildRow(Subject mySubject) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Text(
+              mySubject.date,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w300,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Text(
+              mySubject.name,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Text(
+              mySubject.amount.toStringAsFixed(2),
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.deepPurple,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +86,12 @@ class Grades extends StatelessWidget {
             left: 0.0,
             child: GradesAppBar(
               title: "Notes",
-              gradientBegin: Colors.red[200],
-              gradientEnd: Colors.red,
+              gradientBegin: Colors.deepPurple[200],
+              gradientEnd: Colors.deepPurple,
             ),
           ),
           Positioned(
-            top: 110,
+            top: 100,
             left: 20,
             right: 20,
             child: Container(
@@ -31,12 +101,49 @@ class Grades extends StatelessWidget {
               ),
               // width: set by left & right
               height: 50,
-              padding: EdgeInsets.all(10),
-              child: Text("Hello"),
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    flex: 2,
+                    child: Text(
+                      'Date',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      'Type du devoir',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      'Note',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Positioned(
-            top: 175,
+            top: 165,
             left: 20,
             right: 20,
             bottom: 20,
@@ -51,67 +158,23 @@ class Grades extends StatelessWidget {
                 child: CustomScrollView(
                   slivers: <Widget>[
                     SliverList(
-                      delegate: SliverChildListDelegate([
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          child: DataTable(
-                            headingRowHeight: 0,
-                            columnSpacing: 5,
-                            columns: [
-                              DataColumn(label: Text('')),
-                              DataColumn(label: Text('')),
-                              DataColumn(label: Text('')),
-                              DataColumn(label: Text('')),
-                            ],
-                            rows: [
-                              DataRow(
-                                cells: [
-                                  DataCell(
-                                    Center(
-                                      child: Text(
-                                        '1 Mars',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  DataCell(
-                                    Center(
-                                      child: Text(
-                                        'Mathematiques',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  DataCell(
-                                    Center(
-                                      child: Text(
-                                        '19.5',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  DataCell(
-                                    Center(
-                                      child: Text(
-                                        'T.Bien',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                      delegate: SliverChildListDelegate(
+                        [
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(vertical: 15),
+                              child: Column(
+                                children: mySubjects
+                                    .map(
+                                      (subject) => _buildRow(subject),
+                                    )
+                                    .toList(),
                               ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ]),
+                        ],
+                      ),
                     )
                   ],
                 ),

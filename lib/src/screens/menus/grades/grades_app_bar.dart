@@ -1,7 +1,8 @@
+import 'package:education_app/src/screens/menus/grades/title_dropdown.dart';
 import 'package:flutter/material.dart';
 
 class GradesAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final double _preferredHeight = 130;
+  final double _preferredHeight = 110;
 
   final String title;
   final Color gradientBegin, gradientEnd;
@@ -45,14 +46,8 @@ class GradesAppBar extends StatelessWidget implements PreferredSizeWidget {
               Navigator.of(context).pop();
             },
           ),
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              letterSpacing: 1,
-              fontSize: 28,
-              fontWeight: FontWeight.w700,
-            ),
+          Expanded(
+            child: TitleDropDown(),
           ),
           // To keep the text centered
           IconButton(
