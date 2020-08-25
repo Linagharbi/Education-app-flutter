@@ -200,9 +200,7 @@ class _DevoirsPageState extends State<DevoirsPage> {
                 )
               ],
             ),
-            SizedBox(
-              width: 60,
-            ),
+            Spacer(),
             Container(
               width: 25,
               height: 25,
@@ -218,6 +216,7 @@ class _DevoirsPageState extends State<DevoirsPage> {
                 ),
               ),
             ),
+            SizedBox(width: 15),
           ],
         ),
         Center(

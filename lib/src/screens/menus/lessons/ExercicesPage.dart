@@ -201,9 +201,7 @@ class _ExercicePageState extends State<ExercicePage> {
                 )
               ],
             ),
-            SizedBox(
-              width: 100,
-            ),
+            Spacer(),
             Container(
               width: 25,
               height: 25,
@@ -219,6 +217,7 @@ class _ExercicePageState extends State<ExercicePage> {
                 ),
               ),
             ),
+            SizedBox(width: 15),
           ],
         ),
         Center(

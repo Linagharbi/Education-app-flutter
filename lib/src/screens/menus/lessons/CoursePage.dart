@@ -149,7 +149,11 @@ class _CoursePageState extends State<CoursePage> {
   }
 
   Column productListing(
-      String title, String info, String date, String activeOrInactive) {
+    String title,
+    String info,
+    String date,
+    String activeOrInactive,
+  ) {
     return Column(
       children: <Widget>[
         SizedBox(
@@ -201,9 +205,7 @@ class _CoursePageState extends State<CoursePage> {
                 )
               ],
             ),
-            SizedBox(
-              width: 100,
-            ),
+            Spacer(),
             Container(
               width: 25,
               height: 25,
@@ -219,6 +221,7 @@ class _CoursePageState extends State<CoursePage> {
                 ),
               ),
             ),
+            SizedBox(width: 15),
           ],
         ),
         Center(
