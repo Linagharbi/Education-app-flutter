@@ -44,6 +44,12 @@ dependencies:
   intl: ^0.16.1
   ### UserSina Dependencies
 
+  ###UserLina Dependencies
+  flutter_svg: ^0.18.0
+  animated_button:
+
+  ###UserLina Dependencies
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
