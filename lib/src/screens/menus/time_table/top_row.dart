@@ -24,29 +24,35 @@ class TopRow extends StatelessWidget {
     final loggedUser = Provider.of<LoggedUser>(context, listen: false);
     return Row(
       children: <Widget>[
-        Row(
-          children: [
-            Text(
-              "Classe ",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+        Expanded(
+          flex: 1,
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "Classe  ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextSpan(
+                  text: "9 B 6",
+                  style: TextStyle(
+                    color: Color(0xFFa79abf),
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(width: 8),
-            Text(
-              "9 B 6",
-              style: TextStyle(
-                color: Color(0xFFa79abf),
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+          ),
         ),
-        Spacer(),
-        _buildStudentInfo(loggedUser),
+        Expanded(
+          flex: 1,
+          child: _buildStudentInfo(loggedUser),
+        ),
       ],
     );
   }
