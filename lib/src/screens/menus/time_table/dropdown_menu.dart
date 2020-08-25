@@ -18,7 +18,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
   @override
   Widget build(BuildContext context) {
     return FittedBox(
-      fit: BoxFit.contain,
+      fit: BoxFit.scaleDown,
       child: DropdownButton<String>(
         hint: Text(
           "Select child",

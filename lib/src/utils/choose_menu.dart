@@ -1,3 +1,4 @@
+import 'package:education_app/src/screens/menus/grades/grades.dart';
 import 'package:education_app/src/screens/menus/lessons/lessons.dart';
 import 'package:education_app/src/screens/menus/discipline/discipline.dart';
 import 'package:education_app/src/screens/menus/payment/payment.dart';

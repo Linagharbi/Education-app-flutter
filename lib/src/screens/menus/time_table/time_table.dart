@@ -13,12 +13,12 @@ class TimeTable extends StatefulWidget {
 class _TimeTableState extends State<TimeTable> {
   final List<RadioModel> myDays = [
     // Index 0 (Sunday) not included
-    RadioModel(false, 'MON', DateTimeMethods().isCurrentDay(1)),
-    RadioModel(false, 'TUE', DateTimeMethods().isCurrentDay(2)),
-    RadioModel(false, 'WED', DateTimeMethods().isCurrentDay(3)),
-    RadioModel(false, 'THU', DateTimeMethods().isCurrentDay(4)),
-    RadioModel(false, 'FRI', DateTimeMethods().isCurrentDay(5)),
-    RadioModel(false, 'SAT', DateTimeMethods().isCurrentDay(6)),
+    RadioModel(false, 'LUN', DateTimeMethods().isCurrentDay(1)),
+    RadioModel(false, 'MAR', DateTimeMethods().isCurrentDay(2)),
+    RadioModel(false, 'MER', DateTimeMethods().isCurrentDay(3)),
+    RadioModel(false, 'JEU', DateTimeMethods().isCurrentDay(4)),
+    RadioModel(false, 'VEN', DateTimeMethods().isCurrentDay(5)),
+    RadioModel(false, 'SAM', DateTimeMethods().isCurrentDay(6)),
   ];
 
   // ignore: todo
