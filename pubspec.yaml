@@ -44,11 +44,9 @@ dependencies:
   intl: ^0.16.1
   ### UserSina Dependencies
 
-  ###UserLina Dependencies
+  ### UserLina Dependencies
   flutter_svg: ^0.18.0
-  animated_button:
-
-  ###UserLina Dependencies
+  ### UserLina Dependencies
 
 dev_dependencies:
   flutter_test:
@@ -75,4 +73,7 @@ flutter:
     - family: OpenSans
       fonts:
         - asset: assets/fonts/OpenSans.ttf
+    - family: avenir
+      fonts:
+        - asset: assets/fonts/avenir.ttf
   # UserSina Fonts
