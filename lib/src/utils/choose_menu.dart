@@ -15,7 +15,7 @@ class MenuChoice {
       case 11: //Lessons
         return Lessons();
       case 12: //Exercices
-        return ProfilePage();
+        return Grades();
       case 13: //Evénements
         return ProfilePage();
       case 14: //Résultats
@@ -27,7 +27,7 @@ class MenuChoice {
       case 21: //Lessons
         return Lessons();
       case 22: //Exercices
-        return ProfilePage();
+        return Grades();
       case 23: //Evénements
         return ProfilePage();
       case 24: //Résultats
