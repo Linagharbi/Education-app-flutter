@@ -1,3 +1,5 @@
+import 'package:education_app/src/screens/menus/discipline/discipline.dart';
+import 'package:education_app/src/screens/menus/payment/payment.dart';
 import 'package:education_app/src/screens/menus/results.dart';
 import 'package:education_app/src/screens/menus/time_table/time_table.dart';
 import 'package:education_app/src/screens/pages/notifications.dart';
