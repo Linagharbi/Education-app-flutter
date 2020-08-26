@@ -4,14 +4,17 @@ class Inscription {
   double pricePaid;
   double priceLeft;
 
-  Inscription({this.id, this.priceTotal, this.pricePaid, this.priceLeft});
+  Inscription({
+    this.id,
+    this.priceTotal,
+    this.pricePaid,
+    this.priceLeft,
+  });
 
-  factory Inscription.fromJson(Map<String, dynamic> json) {
-    return Inscription(
-      id: json['id'] as int,
-      priceTotal: json['TTC_Scolaire'] as double,
-      pricePaid: json['Solde'] as double,
-      priceLeft: json['Restant_Scolaire'] as double,
-    );
-  }
+  factory Inscription.fromJson(Map<String, dynamic> json) => Inscription(
+        id: json["id"],
+        priceTotal: json["TTC_Scolaire"].toDouble(),
+        pricePaid: json["Solde"].toDouble(),
+        priceLeft: json["Restant_Scolaire"].toDouble(),
+      );
 }

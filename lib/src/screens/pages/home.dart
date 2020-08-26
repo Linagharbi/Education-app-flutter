@@ -1,15 +1,32 @@
+import 'package:education_app/src/models/student.dart';
 import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/providers/logged_user.dart';
 import 'package:education_app/src/screens/bloc_navigation/navigation_bloc.dart';
+import 'package:education_app/src/services/http_service.dart';
 import 'package:education_app/src/utils/choose_menu.dart';
 import 'package:education_app/src/utils/home_menus.dart';
 import 'package:education_app/src/widgets/item_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget with NavigationStates {
-  // On menu Item click
+class HomePage extends StatefulWidget with NavigationStates {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final HttpService _httpService = HttpService();
   final MenuChoice _menuChoice = MenuChoice();
+  Future<List<Student>> _futureChildren;
+
+  @override
+  void initState() {
+    super.initState();
+    LoggedUser loggedUser = Provider.of<LoggedUser>(context, listen: false);
+    _futureChildren = _httpService.getChildren(loggedUser.info.id);
+  }
+
+  // On menu Item click
   void changeView(BuildContext context, {int itemId}) {
     Navigator.push(
       context,
@@ -19,7 +36,7 @@ class HomePage extends StatelessWidget with NavigationStates {
     );
   }
 
-  // Build the gridview
+  // Build the GridView
   Widget _buildGridView(List<Map<String, Object>> currentList) {
     return OrientationBuilder(
       builder: (context, orientation) {
@@ -43,8 +60,8 @@ class HomePage extends StatelessWidget with NavigationStates {
   @override
   Widget build(BuildContext context) {
     final loggedUser = Provider.of<LoggedUser>(context, listen: false);
-    final myChildren = Provider.of<Children>(context, listen: false);
-    Future futureChildren = myChildren.buildChildren();
+    Children myChildren = Provider.of<Children>(context, listen: false);
+
     List<Map<String, Object>> currentList;
     HomeMenus menus = HomeMenus();
 
@@ -110,9 +127,10 @@ class HomePage extends StatelessWidget with NavigationStates {
                 child: (loggedUser.info.nature == "parent")
                     ? FutureBuilder(
                         // Construct the children provider list from api if parent only
-                        future: futureChildren,
+                        future: _futureChildren,
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
+                            myChildren.setChildren(snapshot.data);
                             return _buildGridView(currentList);
                           } else if (snapshot.hasError) {
                             return Text("${snapshot.error}");

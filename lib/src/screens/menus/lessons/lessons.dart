@@ -1,27 +1,12 @@
-import 'package:education_app/src/screens/menus/lessons/menu_down.dart';
 import 'package:education_app/src/screens/menus/lessons/search_bar.dart';
-import 'package:education_app/src/screens/pages/home.dart';
 import 'package:flutter/material.dart';
 
-class Lessons extends StatelessWidget {
+class Lessons extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LessonsPage(),
-      routes: {
-        '/menu': (context) => Menu(),
-      },
-    );
-  }
+  _LessonsState createState() => _LessonsState();
 }
 
-class LessonsPage extends StatefulWidget {
-  @override
-  _LessonsPageState createState() => _LessonsPageState();
-}
-
-class _LessonsPageState extends State<LessonsPage> {
+class _LessonsState extends State<Lessons> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,12 +22,7 @@ class _LessonsPageState extends State<LessonsPage> {
                 // SearchBox(onChanged: (value) {}),
                 IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
+                    Navigator.of(context).pop();
                   },
                   icon: Icon(
                     Icons.arrow_back_ios,

@@ -37,16 +37,11 @@ class HttpService {
   Future<List<Student>> getChildren(int parentId) async {
     try {
       String urlEnfants = myUrl +
-          "api/ViewGetElevesParParents?filter[where][IdParent]=$parentId";
+          "api/ViewGetElevesParParents?filter[where][IdParent]=$parentId&filter[include]=InscriptionEleve";
       Response res = await get(urlEnfants);
       if (res.statusCode == 200) {
         // Successfull get request
-        List<dynamic> body = jsonDecode(res.body);
-        List<Student> students = body
-            .map(
-              (dynamic item) => Student.fromJson(item),
-            )
-            .toList();
+        final List<Student> students = studentFromJson(res.body);
         return students;
       } else {
         print("http_service: getChildren() => ${res.statusCode} ");
