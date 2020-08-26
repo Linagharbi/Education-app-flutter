@@ -8,14 +8,15 @@ class User {
   String nature;
 
   // Constructor
-  User(
-      {this.id,
-      this.firstName,
-      this.lastName,
-      this.email,
-      this.login,
-      this.password,
-      this.nature});
+  User({
+    this.id,
+    this.firstName,
+    this.lastName,
+    this.email,
+    this.login,
+    this.password,
+    this.nature,
+  });
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(

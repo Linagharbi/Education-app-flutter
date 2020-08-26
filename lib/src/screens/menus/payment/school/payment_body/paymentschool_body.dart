@@ -1,4 +1,5 @@
 import 'package:education_app/src/models/tranche.dart';
+import 'package:education_app/src/screens/menus/payment/dropdownlist.dart';
 import 'package:education_app/src/screens/menus/payment/school/details/detailsschool_screen.dart';
 import 'package:education_app/src/screens/menus/payment/school/payment_body/school_card.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,14 @@ class PaymentSchoolBody extends StatelessWidget {
       bottom: false,
       child: Column(
         children: <Widget>[
-          // SearchBox(onChanged: (value) {}),
-          SizedBox(height: 45),
+          SizedBox(height: 5),
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: DropDownList(myContext: context),
+            ),
+          ),
           Expanded(
             child: Stack(
               children: <Widget>[
@@ -43,7 +50,7 @@ class PaymentSchoolBody extends StatelessWidget {
                       );
                     },
                   ),
-                )
+                ),
               ],
             ),
           ),

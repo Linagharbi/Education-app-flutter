@@ -1,3 +1,4 @@
+import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/providers/logged_user.dart';
 import 'package:education_app/src/screens/bloc_navigation/navigation_bloc.dart';
 import 'package:education_app/src/utils/choose_menu.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget with NavigationStates {
+  // On menu Item click
   final MenuChoice _menuChoice = MenuChoice();
   void changeView(BuildContext context, {int itemId}) {
     Navigator.push(
@@ -17,14 +19,36 @@ class HomePage extends StatelessWidget with NavigationStates {
     );
   }
 
+  // Build the gridview
+  Widget _buildGridView(List<Map<String, Object>> currentList) {
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return GridView.count(
+          crossAxisCount: orientation == Orientation.portrait ? 3 : 5,
+          children: currentList
+              .map(
+                (item) => ItemIcon(
+                  label: item['title'],
+                  icon: AssetImage(item['iconPath']),
+                  changeView: changeView,
+                  itemId: item['itemId'],
+                ),
+              )
+              .toList(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final loggedUser = Provider.of<LoggedUser>(context, listen: false);
+    final myChildren = Provider.of<Children>(context, listen: false);
+    Future futureChildren = myChildren.buildChildren();
     List<Map<String, Object>> currentList;
     HomeMenus menus = HomeMenus();
 
     // Pick a list depending on the nature of the user
-    print("FROM_home: Nature: ${loggedUser.info.nature}");
     switch (loggedUser.info.nature) {
       case "eleve":
         currentList = menus.student;
@@ -68,6 +92,7 @@ class HomePage extends StatelessWidget with NavigationStates {
             ),
             Expanded(
               child: Container(
+                width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.only(
                   left: 10,
                   right: 10,
@@ -82,24 +107,22 @@ class HomePage extends StatelessWidget with NavigationStates {
                     bottomRight: Radius.circular(50),
                   ),
                 ),
-                child: OrientationBuilder(
-                  builder: (context, orientation) {
-                    return GridView.count(
-                      crossAxisCount:
-                          orientation == Orientation.portrait ? 3 : 5,
-                      children: currentList
-                          .map(
-                            (item) => ItemIcon(
-                              label: item['title'],
-                              icon: AssetImage(item['iconPath']),
-                              changeView: changeView,
-                              itemId: item['itemId'],
-                            ),
-                          )
-                          .toList(),
-                    );
-                  },
-                ),
+                child: (loggedUser.info.nature == "parent")
+                    ? FutureBuilder(
+                        // Construct the children provider list from api if parent only
+                        future: futureChildren,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return _buildGridView(currentList);
+                          } else if (snapshot.hasError) {
+                            return Text("${snapshot.error}");
+                          }
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        },
+                      )
+                    : _buildGridView(currentList),
               ),
             ),
           ],

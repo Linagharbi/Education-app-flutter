@@ -1,27 +1,50 @@
+import 'dart:developer';
+
+import 'package:education_app/src/utils/format_string.dart';
+import 'package:education_app/src/providers/children.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DropDownList extends StatefulWidget {
+  final BuildContext myContext;
+  DropDownList({this.myContext});
+
   @override
   _DropDownListState createState() => _DropDownListState();
 }
 
 class _DropDownListState extends State<DropDownList> {
-  // ignore: todo
-  // TODO: Pass children list as provider to whole widgets
-  final List<String> children = [
-    "Mansour Ben Selmene",
-    "Mahdi Ben Selmene",
-    "Sarra Ben Selmene"
-  ];
+  Children myChildren;
+  List<String> children = [];
   String selectedChild;
 
   @override
+  void initState() {
+    super.initState();
+
+    // Build the dropdown & set the selected child in UI and in provider
+    myChildren = Provider.of<Children>(widget.myContext, listen: false);
+    children = myChildren.list
+        .map(
+          (child) => child.frName.toCamelCase(),
+        )
+        .toList();
+    selectedChild = myChildren.list[0].frName.toCamelCase();
+
+    // Update the provider without toggling changes
+    myChildren.selectedStudent = myChildren.list[0];
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // final myChildren = Provider.of<Children>(context, listen: false);
+    // _initializeList(context, myChildren);
+
     return DropdownButton<String>(
       hint: Text(
-        "Select child",
+        "Selectionnez un enfant",
         style: TextStyle(
-          color: Color(0xFF8e7daf),
+          color: Colors.white54,
         ),
       ),
       icon: Icon(
@@ -43,8 +66,8 @@ class _DropDownListState extends State<DropDownList> {
                       selectedChild,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   );
@@ -61,6 +84,8 @@ class _DropDownListState extends State<DropDownList> {
       onChanged: (value) {
         setState(() {
           selectedChild = value;
+          myChildren.setStudent(myChildren.list[(children.indexOf(value))]);
+          log("Selected student is: ${myChildren.selectedStudent.inscription}");
         });
       },
     );

@@ -1,5 +1,4 @@
 import 'package:education_app/src/screens/menus/payment/bus/payment_body/paymentbus_body.dart';
-import 'package:education_app/src/screens/menus/payment/dropdownlist.dart';
 import 'package:flutter/material.dart';
 
 class BusPayment extends StatelessWidget {
@@ -18,12 +17,6 @@ class BusPayment extends StatelessWidget {
       centerTitle: true,
       backgroundColor: Colors.transparent,
       title: Text('Bus'),
-      actions: <Widget>[
-        Padding(
-          padding: EdgeInsets.only(left: 53),
-          child: DropDownList(),
-        )
-      ],
     );
   }
 }

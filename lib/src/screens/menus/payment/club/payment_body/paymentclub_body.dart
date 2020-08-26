@@ -1,6 +1,7 @@
 import 'package:education_app/src/models/tranche.dart';
 import 'package:education_app/src/screens/menus/payment/club/details/detailsclub_screen.dart';
 import 'package:education_app/src/screens/menus/payment/club/payment_body/club_card.dart';
+import 'package:education_app/src/screens/menus/payment/dropdownlist.dart';
 import 'package:flutter/material.dart';
 
 class PaymentClubBody extends StatelessWidget {
@@ -10,8 +11,14 @@ class PaymentClubBody extends StatelessWidget {
       bottom: false,
       child: Column(
         children: <Widget>[
-          // SearchBox(onChanged: (value) {}),
-          SizedBox(height: 45),
+          SizedBox(height: 5),
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: DropDownList(myContext: context),
+            ),
+          ),
           Expanded(
             child: Stack(
               children: <Widget>[
