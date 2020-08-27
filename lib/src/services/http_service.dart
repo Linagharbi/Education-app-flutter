@@ -57,8 +57,8 @@ class HttpService {
   // Get a list of all tranches from inscription id
   Future<List<RawTranche>> getTranches(int inscriptionId) async {
     try {
-      String urlInscription =
-          myUrl + "api/Paiements?filter[where][Inscription]=$inscriptionId";
+      String urlInscription = myUrl +
+          "api/Paiements?filter[where][Inscription]=$inscriptionId&filter[include]=reglementEleve";
       Response res = await get(urlInscription);
       if (res.statusCode == 200) {
         // Successfully get request

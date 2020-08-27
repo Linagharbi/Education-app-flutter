@@ -4,12 +4,6 @@
 
 import 'dart:convert';
 
-// TODO:
-// http://api.elite2com.com:3000/api/Paiements?filter[where][Inscription]=205
-// http://api.elite2com.com:3000/api/reglementeleves?filter[where][IdInscription]=816&filter[include]=modeReglement
-
-// Merge Both
-
 List<RawTranche> rawTrancheFromJson(String str) =>
     List<RawTranche>.from(json.decode(str).map((x) => RawTranche.fromJson(x)));
 
@@ -28,6 +22,7 @@ class RawTranche {
     this.totalTtc,
     this.montantRestant,
     this.id,
+    this.reglementEleve,
   });
 
   dynamic motifPaiement;
@@ -43,6 +38,7 @@ class RawTranche {
   double totalTtc;
   double montantRestant;
   int id;
+  List<ReglementEleve> reglementEleve;
 
   factory RawTranche.fromJson(Map<String, dynamic> json) => RawTranche(
         motifPaiement: json["MotifPaiement"],
@@ -57,6 +53,65 @@ class RawTranche {
         totalTva: json["TotalTVA"].toDouble(),
         totalTtc: json["TotalTTC"].toDouble(),
         montantRestant: json["MontantRestant"].toDouble(),
+        id: json["id"],
+        reglementEleve: List<ReglementEleve>.from(
+            json["reglementEleve"].map((x) => ReglementEleve.fromJson(x))),
+      );
+}
+
+class ReglementEleve {
+  ReglementEleve({
+    this.date,
+    this.modeReglement,
+    this.numCheque,
+    this.proprietaire,
+    this.montant,
+    this.idInscription,
+    this.idExtra,
+    this.personne,
+    this.utilisateur,
+    this.dateEcheance,
+    this.banque,
+    this.observation,
+    this.regInscri,
+    this.typeReglement,
+    this.remboursement,
+    this.id,
+  });
+
+  DateTime date;
+  int modeReglement;
+  String numCheque;
+  dynamic proprietaire;
+  int montant;
+  int idInscription;
+  dynamic idExtra;
+  int personne;
+  int utilisateur;
+  DateTime dateEcheance;
+  int banque;
+  dynamic observation;
+  int regInscri;
+  int typeReglement;
+  int remboursement;
+  int id;
+
+  factory ReglementEleve.fromJson(Map<String, dynamic> json) => ReglementEleve(
+        date: DateTime.parse(json["Date"]),
+        modeReglement: json["ModeReglement"],
+        numCheque: json["NumCheque"],
+        proprietaire: json["Proprietaire"],
+        montant: json["Montant"],
+        idInscription: json["IdInscription"],
+        idExtra: json["IdExtra"],
+        personne: json["Personne"],
+        utilisateur: json["Utilisateur"],
+        dateEcheance: DateTime.parse(json["DateEcheance"]),
+        banque: json["Banque"],
+        observation: json["Observation"],
+        regInscri: json["RegInscri"],
+        typeReglement: json["TypeReglement"],
+        remboursement: json["Remboursement"],
         id: json["id"],
       );
 }

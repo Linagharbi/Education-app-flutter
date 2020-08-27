@@ -27,6 +27,7 @@ class PaymentSchoolBody extends StatelessWidget {
         }
         if (snapshot.hasData) {
           List<RawTranche> myTranches = snapshot.data;
+          log(myTranches.length.toString());
           return ListView.builder(
             // here we use our demo tranches list
             itemCount: myTranches.length,
