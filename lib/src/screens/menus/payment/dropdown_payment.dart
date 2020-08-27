@@ -1,19 +1,14 @@
-import 'dart:developer';
-
 import 'package:education_app/src/utils/format_string.dart';
 import 'package:education_app/src/providers/children.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class DropDownList extends StatefulWidget {
-  final BuildContext myContext;
-  DropDownList({this.myContext});
-
+class DropDownPayment extends StatefulWidget {
   @override
-  _DropDownListState createState() => _DropDownListState();
+  _DropDownPaymentState createState() => _DropDownPaymentState();
 }
 
-class _DropDownListState extends State<DropDownList> {
+class _DropDownPaymentState extends State<DropDownPayment> {
   Children myChildren;
   List<String> children = [];
   String selectedChild;
@@ -23,7 +18,7 @@ class _DropDownListState extends State<DropDownList> {
     super.initState();
 
     // Build the dropdown & set the selected child in UI and in provider
-    myChildren = Provider.of<Children>(widget.myContext, listen: false);
+    myChildren = Provider.of<Children>(context, listen: false);
     children = myChildren.list
         .map(
           (child) => child.frName.toCamelCase(),
@@ -31,15 +26,17 @@ class _DropDownListState extends State<DropDownList> {
         .toList();
     selectedChild = myChildren.list[0].frName.toCamelCase();
 
-    // Update the provider without toggling changes
-    myChildren.selectedStudent = myChildren.list[0];
+    // No need: Initial selected is updated in provider
+    // Update the provider and toggle changes
+    // Future to wait for the whole widget tree to build
+    // to make use of ChangeNotifier();
+    // Future.microtask(
+    //   () => myChildren.setStudent(myChildren.list[0]),
+    // );
   }
 
   @override
   Widget build(BuildContext context) {
-    // final myChildren = Provider.of<Children>(context, listen: false);
-    // _initializeList(context, myChildren);
-
     return DropdownButton<String>(
       hint: Text(
         "Selectionnez un enfant",
@@ -85,7 +82,6 @@ class _DropDownListState extends State<DropDownList> {
         setState(() {
           selectedChild = value;
           myChildren.setStudent(myChildren.list[(children.indexOf(value))]);
-          log("Selected student is: ${myChildren.selectedStudent.inscription}");
         });
       },
     );

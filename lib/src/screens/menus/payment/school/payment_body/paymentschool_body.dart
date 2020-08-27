@@ -1,12 +1,66 @@
+import 'dart:developer';
+
+import 'package:education_app/src/models/Tranche/RawTranche.dart';
 import 'package:education_app/src/models/tranche.dart';
-import 'package:education_app/src/screens/menus/payment/dropdownlist.dart';
+import 'package:education_app/src/providers/children.dart';
+import 'package:education_app/src/screens/menus/payment/dropdown_payment.dart';
 import 'package:education_app/src/screens/menus/payment/school/details/detailsschool_screen.dart';
 import 'package:education_app/src/screens/menus/payment/school/payment_body/school_card.dart';
+import 'package:education_app/src/services/http_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PaymentSchoolBody extends StatelessWidget {
+  final HttpService _httpService = HttpService();
+
+  Widget _buildListView(Children children) {
+    log("Building the lisView for ${children.selectedStudent.inscription.id}");
+    Future<List<RawTranche>> _futureTranches =
+        _httpService.getTranches(children.selectedStudent.inscription.id);
+    return FutureBuilder(
+      future: _futureTranches,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (snapshot.hasData) {
+          List<RawTranche> myTranches = snapshot.data;
+          return ListView.builder(
+            // here we use our demo tranches list
+            itemCount: myTranches.length,
+            itemBuilder: (context, index) => SchoolCard(
+              itemIndex: index,
+              tranche: myTranches[index],
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsSchoolScreen(
+                      tranche: tranches[index],
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        } else if (snapshot.hasError) {
+          return Text("${snapshot.error}");
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Children myChildren = Provider.of<Children>(context, listen: false);
+    // _httpService.getTranches(children.selectedStudent.inscription.id)
+    // log("Display infroamtion for: ${myChildren.selectedStudent.inscription.id}");
+
     return SafeArea(
       bottom: false,
       child: Column(
@@ -16,7 +70,7 @@ class PaymentSchoolBody extends StatelessWidget {
             padding: EdgeInsets.only(right: 10),
             child: Align(
               alignment: Alignment.centerRight,
-              child: DropDownList(myContext: context),
+              child: DropDownPayment(),
             ),
           ),
           Expanded(
@@ -33,23 +87,10 @@ class PaymentSchoolBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                ListView.builder(
-                  // here we use our demo tranches list
-                  itemCount: tranches.length,
-                  itemBuilder: (context, index) => SchoolCard(
-                    itemIndex: index,
-                    tranche: tranches[index],
-                    press: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailsSchoolScreen(
-                            tranche: tranches[index],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                // Only rebuild this widget on selectedStudent change (from dropdownlist)
+                Consumer<Children>(
+                  builder: (context, children, child) =>
+                      _buildListView(children),
                 ),
               ],
             ),

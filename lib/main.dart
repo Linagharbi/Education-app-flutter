@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
             create: (context) => LoggedUser(),
           ),
           ChangeNotifierProvider<Children>(
-            create: (context) => Children(context),
+            create: (context) => Children(),
           ),
         ],
         child: MaterialApp(

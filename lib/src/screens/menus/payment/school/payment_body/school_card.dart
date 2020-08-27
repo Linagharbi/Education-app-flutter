@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/tranche.dart';
+import 'package:education_app/src/models/Tranche/RawTranche.dart';
 import 'package:flutter/material.dart';
 
 class SchoolCard extends StatelessWidget {
@@ -10,7 +10,7 @@ class SchoolCard extends StatelessWidget {
   }) : super(key: key);
 
   final int itemIndex;
-  final Tranche tranche;
+  final RawTranche tranche;
   final Function press;
 
   @override
@@ -63,7 +63,7 @@ class SchoolCard extends StatelessWidget {
                   // image is square but we add extra 20 + 20 padding thats why width is 200
                   width: 50,
                   child: Image.asset(
-                    tranche.image,
+                    "assets/images/cheque.png",
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -84,7 +84,7 @@ class SchoolCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(
-                        tranche.title,
+                        tranche.tranche,
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),
@@ -93,7 +93,7 @@ class SchoolCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(
-                        tranche.description,
+                        "Tranche Description here",
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),
@@ -112,7 +112,7 @@ class SchoolCard extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "${tranche.price}\ dinars",
+                        "${tranche.totalTtc}\ dinars",
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),

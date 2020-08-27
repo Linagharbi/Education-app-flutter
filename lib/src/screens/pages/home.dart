@@ -2,7 +2,6 @@ import 'package:education_app/src/models/student.dart';
 import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/providers/logged_user.dart';
 import 'package:education_app/src/screens/bloc_navigation/navigation_bloc.dart';
-import 'package:education_app/src/services/http_service.dart';
 import 'package:education_app/src/utils/choose_menu.dart';
 import 'package:education_app/src/utils/home_menus.dart';
 import 'package:education_app/src/widgets/item_icon.dart';
@@ -15,7 +14,6 @@ class HomePage extends StatefulWidget with NavigationStates {
 }
 
 class _HomePageState extends State<HomePage> {
-  final HttpService _httpService = HttpService();
   final MenuChoice _menuChoice = MenuChoice();
   Future<List<Student>> _futureChildren;
 
@@ -23,7 +21,10 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     LoggedUser loggedUser = Provider.of<LoggedUser>(context, listen: false);
-    _futureChildren = _httpService.getChildren(loggedUser.info.id);
+    Children myChildren = Provider.of<Children>(context, listen: false);
+
+    // Build the children list and UI from future
+    _futureChildren = myChildren.getTheChildren(loggedUser.info.id);
   }
 
   // On menu Item click

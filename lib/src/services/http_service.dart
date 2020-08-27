@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:education_app/src/models/Tranche/RawTranche.dart';
 import 'package:education_app/src/models/student.dart';
 import 'package:education_app/src/models/user.dart';
 import 'package:http/http.dart';
@@ -49,6 +50,26 @@ class HttpService {
       }
     } catch (e) {
       print("http_service: Error fetching children!");
+      return null;
+    }
+  }
+
+  // Get a list of all tranches from inscription id
+  Future<List<RawTranche>> getTranches(int inscriptionId) async {
+    try {
+      String urlInscription =
+          myUrl + "api/Paiements?filter[where][Inscription]=$inscriptionId";
+      Response res = await get(urlInscription);
+      if (res.statusCode == 200) {
+        // Successfully get request
+        final List<RawTranche> tranches = rawTrancheFromJson(res.body);
+        return tranches;
+      } else {
+        print("http_service: getTranches() => ${res.statusCode} ");
+        return null;
+      }
+    } catch (e) {
+      print("http_service: Error fetching tranches!");
       return null;
     }
   }
