@@ -7,7 +7,9 @@ import 'package:education_app/src/models/user.dart';
 import 'package:http/http.dart';
 
 class HttpService {
-  final String myUrl = "http://api.elite2com.com:3000/";
+  // Local development
+  final String myUrl = "http://192.168.1.200:3000/";
+  // final String myUrl = "http://api.elite2com.com:3000/";
 
   //--------------------------GET Methods-----------------------------------//
   // Get a list of all users
