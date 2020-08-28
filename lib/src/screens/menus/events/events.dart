@@ -1,3 +1,4 @@
+import 'package:education_app/src/screens/menus/events/events_home/clubs_home.dart';
 import 'package:education_app/src/screens/menus/events/events_home/events_home.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class _EventsState extends State<Events> {
 
   final tabs = [
     EventsHome(),
-    EventsHome(),
+    ClubsHome(),
   ];
 
   @override

@@ -40,18 +40,18 @@ final musicConcert = Event(
     punchLine2: "The latest fad in foodology, get the inside scoup.",
     categoryIds: [0, 1]);
 
-final golfCompetition = Event(
-    imagePath: "assets/images/golf_competition.jpeg",
-    title: "Season 2 Golf ",
-    description: "Let's play Golf",
-    location: "Golf Hammamet",
-    duration: "29 Aout 2020",
-    punchLine1: "Golf!",
-    punchLine2: "The latest fad in foodology, get the inside scoup.",
-    categoryIds: [0, 2]);
+// final golfCompetition = Event(
+//     imagePath: "assets/images/golf_competition.jpeg",
+//     title: "Season 2 Golf ",
+//     description: "Let's play Golf",
+//     location: "Golf Hammamet",
+//     duration: "29 Aout 2020",
+//     punchLine1: "Golf!",
+//     punchLine2: "The latest fad in foodology, get the inside scoup.",
+//     categoryIds: [0, 2]);
 
 final events = [
   fiveKmRunEvent,
   musicConcert,
-  golfCompetition,
+  // golfCompetition,
 ];

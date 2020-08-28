@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 final TextStyle fadedTextStyle = TextStyle(
-  fontSize: 22.0,
+  fontSize: 20.0,
   fontWeight: FontWeight.bold,
   color: Color(0x99FFFFFF),
 );

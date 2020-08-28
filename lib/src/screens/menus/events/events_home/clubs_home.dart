@@ -1,15 +1,15 @@
-import 'package:education_app/src/models/event.dart';
+import 'package:education_app/src/models/club.dart';
 import 'package:education_app/src/screens/menus/events/app_state.dart';
-import 'package:education_app/src/screens/menus/events/events_details/event_details_page.dart';
+import 'package:education_app/src/screens/menus/events/events_details/club_details_page.dart';
+import 'package:education_app/src/screens/menus/events/events_home/club_widget.dart';
 import 'package:education_app/src/screens/menus/events/styleguide.dart';
 import 'package:education_app/src/screens/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'event_widget.dart';
 import 'home_page_background.dart';
 
-class EventsHome extends StatelessWidget {
+class ClubsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,12 +35,6 @@ class EventsHome extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 32.0),
                       child: Row(
                         children: <Widget>[
-                          // Icon(
-                          //   Icons.keyboard_backspace,
-                          //   color: Color(0x99FFFFFF),
-                          //   size: 33,
-
-                          // ),
                           IconButton(
                             onPressed: () {
                               Navigator.push(
@@ -57,7 +51,7 @@ class EventsHome extends StatelessWidget {
                           ),
                           Spacer(),
                           Text(
-                            "The Events",
+                            "The Clubs",
                             style: fadedTextStyle,
                           ),
                         ],
@@ -93,20 +87,19 @@ class EventsHome extends StatelessWidget {
                       child: Consumer<AppState>(
                         builder: (context, appState, _) => Column(
                           children: <Widget>[
-                            for (final event in events.where((e) => e
-                                .categoryIds
+                            for (final club in clubs.where((e) => e.categoryIds
                                 .contains(appState.selectedCategoryId)))
                               GestureDetector(
                                 onTap: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          EventDetailsPage(event: event),
+                                          ClubDetailsPage(club: club),
                                     ),
                                   );
                                 },
-                                child: EventWidget(
-                                  event: event,
+                                child: ClubWidget(
+                                  club: club,
                                 ),
                               )
                           ],
