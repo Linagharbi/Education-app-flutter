@@ -10,7 +10,7 @@ import 'category_widget.dart';
 import 'event_widget.dart';
 import 'home_page_background.dart';
 
-class Events extends StatelessWidget {
+class EventsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

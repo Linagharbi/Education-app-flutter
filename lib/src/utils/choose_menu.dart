@@ -1,4 +1,4 @@
-import 'package:education_app/src/screens/menus/events/events_home/events.dart';
+import 'package:education_app/src/screens/menus/events/events.dart';
 import 'package:education_app/src/screens/menus/payment.dart';
 import 'package:education_app/src/screens/menus/results.dart';
 import 'package:education_app/src/screens/menus/time_table/time_table.dart';
