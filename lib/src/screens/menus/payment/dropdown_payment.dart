@@ -24,15 +24,13 @@ class _DropDownPaymentState extends State<DropDownPayment> {
           (child) => child.frName.toCamelCase(),
         )
         .toList();
-    selectedChild = myChildren.list[0].frName.toCamelCase();
 
-    // No need: Initial selected is updated in provider
-    // Update the provider and toggle changes
-    // Future to wait for the whole widget tree to build
-    // to make use of ChangeNotifier();
-    // Future.microtask(
-    //   () => myChildren.setStudent(myChildren.list[0]),
-    // );
+    // By default show the first child name, else show selected
+    if (myChildren.selectedStudent == null) {
+      selectedChild = myChildren.list[0].frName.toCamelCase();
+    } else {
+      selectedChild = myChildren.selectedStudent.frName.toCamelCase();
+    }
   }
 
   @override

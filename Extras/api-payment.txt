@@ -6,7 +6,4 @@ Get "students" from "parent id" :
 http://api.elite2com.com:3000/api/ViewGetElevesParParents?filter[where][IdParent]=33&filter[include]=InscriptionEleve
 
 Get "tranches" from "inscription id"
-http://api.elite2com.com:3000/api/Paiements?filter[where][Inscription]=205
-
-Get "tranche details (reglement)" from "tranche id":
-http://api.elite2com.com:3000/api/reglementeleves?filter[where][IdInscription]=816&filter[include]=modeReglement
+http://api.elite2com.com:3000/api/Paiements?filter[where][Inscription]=205&filter[include]=reglementEleve

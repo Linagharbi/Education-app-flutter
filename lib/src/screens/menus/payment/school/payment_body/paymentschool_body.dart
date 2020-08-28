@@ -14,7 +14,7 @@ class PaymentSchoolBody extends StatelessWidget {
   final HttpService _httpService = HttpService();
 
   Widget _buildListView(Children children) {
-    log("Building the lisView for ${children.selectedStudent.inscription.id}");
+    log("PaymentSchoolBody: Building the lisView for ${children.selectedStudent.inscription.id}");
     Future<List<RawTranche>> _futureTranches =
         _httpService.getTranches(children.selectedStudent.inscription.id);
     return FutureBuilder(
@@ -27,7 +27,6 @@ class PaymentSchoolBody extends StatelessWidget {
         }
         if (snapshot.hasData) {
           List<RawTranche> myTranches = snapshot.data;
-          log(myTranches.length.toString());
           return ListView.builder(
             // here we use our demo tranches list
             itemCount: myTranches.length,

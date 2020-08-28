@@ -1,10 +1,10 @@
-import 'package:education_app/src/providers/children.dart';
+// import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/screens/menus/payment/bus/bus_payment.dart';
 import 'package:education_app/src/screens/menus/payment/canteen/canteen_payment.dart';
 import 'package:education_app/src/screens/menus/payment/club/club_payment.dart';
 import 'package:education_app/src/screens/menus/payment/school/school_payment.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 class Payment extends StatefulWidget {
   @override
@@ -23,7 +23,7 @@ class _PaymentState extends State<Payment> {
 
   @override
   Widget build(BuildContext context) {
-    Children myChildren = Provider.of<Children>(context, listen: true);
+    // Children myChildren = Provider.of<Children>(context, listen: true);
 
     return Scaffold(
       body: tabs[_currentIndex],
@@ -51,7 +51,7 @@ class _PaymentState extends State<Payment> {
         ],
         onTap: (index) {
           setState(() {
-            myChildren.setStudent(myChildren.list[0]);
+            // myChildren.setStudent(myChildren.list[0]);
             _currentIndex = index;
           });
         },
