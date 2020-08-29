@@ -81,6 +81,23 @@ class ClubDetailsContent extends StatelessWidget {
                 style: punchLine1TextStyle,
               ),
             ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, right: 8.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    club.duration,
+                    textAlign: TextAlign.right,
+                    style: eventLocationTextStyle.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

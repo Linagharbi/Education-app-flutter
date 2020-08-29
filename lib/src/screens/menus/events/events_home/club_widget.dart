@@ -1,4 +1,5 @@
 import 'package:education_app/src/models/club.dart';
+import 'package:education_app/src/screens/menus/events/rounded_button.dart';
 import 'package:education_app/src/screens/menus/events/styleguide.dart';
 import 'package:flutter/material.dart';
 
@@ -53,11 +54,16 @@ class ClubWidget extends StatelessWidget {
                                   icon: Icon(Icons.location_on),
                                   onPressed: null),
                               SizedBox(
-                                width: 2,
+                                width: 1,
                               ),
                               Text(
                                 club.location,
                                 style: eventLocationTextStyle,
+                              ),
+                              SizedBox(width: 20),
+                              RoundedButton(
+                                text: "Participer",
+                                press: () {},
                               ),
                             ],
                           ),
@@ -65,16 +71,16 @@ class ClubWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      club.duration,
-                      textAlign: TextAlign.right,
-                      style: eventLocationTextStyle.copyWith(
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ),
+                  // Expanded(
+                  //   flex: 1,
+                  //   child: Text(
+                  //     club.duration,
+                  //     textAlign: TextAlign.right,
+                  //     style: eventLocationTextStyle.copyWith(
+                  //       fontWeight: FontWeight.w900,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

@@ -31,13 +31,6 @@ class EventDetailsContent extends StatelessWidget {
             child: FittedBox(
               child: Row(
                 children: <Widget>[
-                  // Text(
-
-                  //   style: eventLocationTextStyle.copyWith(
-                  //     color: Colors.white,
-                  //     fontWeight: FontWeight.w700,
-                  //   ),
-                  // ),
                   Icon(
                     Icons.location_on,
                     color: Colors.white,
@@ -55,9 +48,11 @@ class EventDetailsContent extends StatelessWidget {
               ),
             ),
           ),
+
           SizedBox(
             height: 200,
           ),
+
           // Padding(
           //   padding: const EdgeInsets.all(16),
           //   // child: RichText(
@@ -81,6 +76,40 @@ class EventDetailsContent extends StatelessWidget {
                 style: punchLine1TextStyle,
               ),
             ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, right: 8.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    event.duration,
+                    textAlign: TextAlign.right,
+                    style: eventLocationTextStyle.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, right: 8.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    event.price,
+                    textAlign: TextAlign.right,
+                    style: eventLocationTextStyle.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

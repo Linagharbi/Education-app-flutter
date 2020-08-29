@@ -2,6 +2,8 @@ import 'package:education_app/src/models/event.dart';
 import 'package:education_app/src/screens/menus/events/styleguide.dart';
 import 'package:flutter/material.dart';
 
+import '../rounded_button.dart';
+
 class EventWidget extends StatelessWidget {
   final Event event;
 
@@ -53,11 +55,16 @@ class EventWidget extends StatelessWidget {
                                   icon: Icon(Icons.location_on),
                                   onPressed: null),
                               SizedBox(
-                                width: 2,
+                                width: 1,
                               ),
                               Text(
                                 event.location,
                                 style: eventLocationTextStyle,
+                              ),
+                              SizedBox(width: 20),
+                              RoundedButton(
+                                text: "Participer",
+                                press: () {},
                               ),
                             ],
                           ),
@@ -65,16 +72,16 @@ class EventWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      event.duration,
-                      textAlign: TextAlign.right,
-                      style: eventLocationTextStyle.copyWith(
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ),
+                  // Expanded(
+                  //   flex: 1,
+                  //   child: Text(
+                  //     event.duration,
+                  //     textAlign: TextAlign.right,
+                  //     style: eventLocationTextStyle.copyWith(
+                  //       fontWeight: FontWeight.w900,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

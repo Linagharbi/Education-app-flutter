@@ -5,7 +5,8 @@ class Event {
       location,
       duration,
       punchLine1,
-      punchLine2;
+      punchLine2,
+      price;
   final List categoryIds, galleryImages;
 
   Event(
@@ -17,6 +18,7 @@ class Event {
       this.punchLine1,
       this.punchLine2,
       this.categoryIds,
+      this.price,
       this.galleryImages});
 }
 
@@ -28,7 +30,8 @@ final fiveKmRunEvent = Event(
     duration: "17 Septembre 2020",
     punchLine1: "Marathon!",
     punchLine2: "The latest fad in foodology, get the inside scoup.",
-    categoryIds: [0, 1]);
+    categoryIds: [0, 1],
+    price: "50 dinars");
 
 final musicConcert = Event(
     imagePath: "assets/images/music_concert.jpeg",
@@ -38,7 +41,8 @@ final musicConcert = Event(
     duration: "10 Octobre",
     punchLine1: "Music Lovers!",
     punchLine2: "The latest fad in foodology, get the inside scoup.",
-    categoryIds: [0, 1]);
+    categoryIds: [0, 1],
+    price: "60 dinars");
 
 // final golfCompetition = Event(
 //     imagePath: "assets/images/golf_competition.jpeg",
