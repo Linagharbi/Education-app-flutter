@@ -56,40 +56,17 @@ class ClubDetailsContent extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 200,
+            height: 350,
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(16),
-          //   // child: RichText(
-          //   //   text: TextSpan(children: [
-          //   //     TextSpan(
-          //   //       text: event.punchLine1,
-          //   //       style: punchLine1TextStyle,
-          //   //     ),
-          //   //     TextSpan(
-          //   //       text: event.punchLine2,
-          //   //       style: punchLine2TextStyle,
-          //   //     ),
-          //   //   ]),
-          //   // ),
-          // ),
-          if (club.description.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                club.description,
-                style: punchLine1TextStyle,
-              ),
-            ),
           Padding(
-            padding: const EdgeInsets.only(top: 8.0, right: 8.0),
+            padding: const EdgeInsets.all(13),
             child: Row(
               children: <Widget>[
                 Expanded(
                   flex: 1,
                   child: Text(
                     club.duration,
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.left,
                     style: eventLocationTextStyle.copyWith(
                       fontWeight: FontWeight.w900,
                     ),
@@ -98,6 +75,14 @@ class ClubDetailsContent extends StatelessWidget {
               ],
             ),
           ),
+          if (club.description.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                club.description,
+                style: punchLine1TextStyle,
+              ),
+            ),
         ],
       ),
     );

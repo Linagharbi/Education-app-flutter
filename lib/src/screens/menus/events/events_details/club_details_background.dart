@@ -17,9 +17,9 @@ class ClubDetailsBackground extends StatelessWidget {
           club.imagePath,
           fit: BoxFit.cover,
           width: screenWidth,
-          color: Color(0x99000000),
+          color: Colors.grey,
           colorBlendMode: BlendMode.darken,
-          height: screenHeight * 0.5,
+          height: screenHeight * 0.7,
         ),
       ),
     );

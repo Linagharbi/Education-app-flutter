@@ -48,43 +48,18 @@ class EventDetailsContent extends StatelessWidget {
               ),
             ),
           ),
-
           SizedBox(
-            height: 200,
+            height: 350,
           ),
-
-          // Padding(
-          //   padding: const EdgeInsets.all(16),
-          //   // child: RichText(
-          //   //   text: TextSpan(children: [
-          //   //     TextSpan(
-          //   //       text: event.punchLine1,
-          //   //       style: punchLine1TextStyle,
-          //   //     ),
-          //   //     TextSpan(
-          //   //       text: event.punchLine2,
-          //   //       style: punchLine2TextStyle,
-          //   //     ),
-          //   //   ]),
-          //   // ),
-          // ),
-          if (event.description.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                event.description,
-                style: punchLine1TextStyle,
-              ),
-            ),
           Padding(
-            padding: const EdgeInsets.only(top: 8.0, right: 8.0),
+            padding: const EdgeInsets.all(13),
             child: Row(
               children: <Widget>[
                 Expanded(
                   flex: 1,
                   child: Text(
                     event.duration,
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.left,
                     style: eventLocationTextStyle.copyWith(
                       fontWeight: FontWeight.w900,
                     ),
@@ -93,6 +68,14 @@ class EventDetailsContent extends StatelessWidget {
               ],
             ),
           ),
+          if (event.description.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                event.description,
+                style: punchLine1TextStyle,
+              ),
+            ),
           Padding(
             padding: const EdgeInsets.only(top: 8.0, right: 8.0),
             child: Row(
