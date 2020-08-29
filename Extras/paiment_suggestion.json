@@ -1,0 +1,83 @@
+[
+	{
+		"NomPrenomFR": "Malak benabda",
+		"NomPrenomAR": "benabda malak",
+		"Tel1": 20220415,
+		"DateNaissance": "2020-06-25T00:00:00.000Z",
+		"IdParent": 336,
+		"IdEleve": 629,
+		"Inscription": 222,
+		"AnneeScolaire": "2020/2021",
+		"id": 222,
+		"InscriptionEleve": {
+			"Eleve": 629,
+			"Classe": 1,
+			"Modalite": 1,
+			"Date": null,
+			"AnneeScolaire": 2,
+			"Personne": 3390,
+			"TTC_Scolaire": 4600,
+			"Restant_Scolaire": 3000,
+			"Solde": 3500,
+			"TypeInscri": null,
+			"id": 222
+		},
+		"InscriptionExtra": {
+			"bus": {
+				"date": null,
+				"Inscription": 222,
+				"TotalHT": 1308.412,
+				"TauxRemise": 0,
+				"TotalRemise": 0,
+				"NetHT": 1308.412,
+				"TauxTVA": 7,
+				"TotalTVA": 91.588,
+				"TotalTTC": 1400,
+				"MontantRestant": 500,
+				"paiementmotif": 1,
+				"Personne": 3390,
+				"AnneeScolaire": 2,
+				"Classe": 1,
+				"Modalite": 1,
+				"id": 1
+			},
+			"cantine": {
+				"date": null,
+				"Inscription": 222,
+				"TotalHT": 1308.412,
+				"TauxRemise": 0,
+				"TotalRemise": 0,
+				"NetHT": 1308.412,
+				"TauxTVA": 7,
+				"TotalTVA": 91.588,
+				"TotalTTC": 1400,
+				"MontantRestant": 500,
+				"paiementmotif": 1,
+				"Personne": 3390,
+				"AnneeScolaire": 2,
+				"Classe": 1,
+				"Modalite": 1,
+				"id": 1
+			},
+			"club": {
+				"date": null,
+				"Inscription": 222,
+				"TotalHT": 1308.412,
+				"TauxRemise": 0,
+				"TotalRemise": 0,
+				"NetHT": 1308.412,
+				"TauxTVA": 7,
+				"TotalTVA": 91.588,
+				"TotalTTC": 1400,
+				"MontantRestant": 500,
+				"paiementmotif": 1,
+				"Personne": 3390,
+				"AnneeScolaire": 2,
+				"Classe": 1,
+				"Modalite": 1,
+				"id": 1
+			},
+			"panier": null
+		}
+	}
+]
