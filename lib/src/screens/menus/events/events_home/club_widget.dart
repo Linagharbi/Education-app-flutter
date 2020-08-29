@@ -71,16 +71,6 @@ class ClubWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Expanded(
-                  //   flex: 1,
-                  //   child: Text(
-                  //     club.duration,
-                  //     textAlign: TextAlign.right,
-                  //     style: eventLocationTextStyle.copyWith(
-                  //       fontWeight: FontWeight.w900,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),

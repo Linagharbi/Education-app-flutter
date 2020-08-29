@@ -35,12 +35,6 @@ class EventsHome extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 32.0),
                       child: Row(
                         children: <Widget>[
-                          // Icon(
-                          //   Icons.keyboard_backspace,
-                          //   color: Color(0x99FFFFFF),
-                          //   size: 33,
-
-                          // ),
                           IconButton(
                             onPressed: () {
                               Navigator.push(
@@ -66,28 +60,6 @@ class EventsHome extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                    //   child: Text(
-                    //     "What's Up",
-                    //     style: whiteHeadingTextStyle,
-                    //   ),
-                    // ),
-                    // Padding(
-                    //   padding: const EdgeInsets.symmetric(vertical: 13.0),
-                    //   child: Consumer<AppState>(
-                    //     builder: (context, appState, _) =>
-                    //         SingleChildScrollView(
-                    //       scrollDirection: Axis.horizontal,
-                    //       child: Row(
-                    //         children: <Widget>[
-                    //           for (final category in categories)
-                    //             CategoryWidget(category: category)
-                    //         ],
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 22.0),
                       child: Consumer<AppState>(

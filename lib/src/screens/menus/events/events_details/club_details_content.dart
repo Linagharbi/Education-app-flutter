@@ -31,13 +31,6 @@ class ClubDetailsContent extends StatelessWidget {
             child: FittedBox(
               child: Row(
                 children: <Widget>[
-                  // Text(
-
-                  //   style: eventLocationTextStyle.copyWith(
-                  //     color: Colors.white,
-                  //     fontWeight: FontWeight.w700,
-                  //   ),
-                  // ),
                   Icon(
                     Icons.location_on,
                     color: Colors.white,
