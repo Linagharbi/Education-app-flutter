@@ -14,7 +14,7 @@ class PaymentSchoolBody extends StatelessWidget {
   final HttpService _httpService = HttpService();
 
   Widget _buildListView(Children children) {
-    log("PaymentSchoolBody: Building the lisView for ${children.selectedStudent.inscription.id}");
+    log("SchoolBody: Building the lisView for ${children.selectedStudent.inscription.id}");
     Future<List<RawTranche>> _futureTranches =
         _httpService.getTranches(children.selectedStudent.inscription.id);
     return FutureBuilder(
@@ -57,10 +57,6 @@ class PaymentSchoolBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Children myChildren = Provider.of<Children>(context, listen: false);
-    // _httpService.getTranches(children.selectedStudent.inscription.id)
-    // log("Display infroamtion for: ${myChildren.selectedStudent.inscription.id}");
-
     return SafeArea(
       bottom: false,
       child: Column(
