@@ -31,8 +31,16 @@ class SessionWidget extends StatelessWidget {
                 ),
               ),
               Lines(
-                lines: [20, 30, 40, 10],
+                lines: [20, 30, 40],
               ),
+              Text(
+                endTime,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+              ),
+              SizedBox(height: 20),
             ],
           ),
         ),
@@ -48,6 +56,8 @@ class SessionWidget extends StatelessWidget {
               ),
             ),
             child: Container(
+              // Increase margin and change color
+              // if current session
               margin: EdgeInsets.only(left: 4),
               color: Color(0xFFfcf9f5),
               padding: EdgeInsets.only(
@@ -61,11 +71,11 @@ class SessionWidget extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 5),
                     child: Row(
                       children: <Widget>[
-                        Text(
-                          "$startTime - $endTime",
-                          style: TextStyle(fontSize: 14),
-                        ),
-                        VerticalDivider(),
+                        // Text(
+                        //   "$startTime - $endTime",
+                        //   style: TextStyle(fontSize: 14),
+                        // ),
+                        // VerticalDivider(),
                         Text("Salle: $location"),
                       ],
                     ),
@@ -104,7 +114,7 @@ class Lines extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: List.generate(
-        4,
+        lines.length,
         (index) => Container(
           width: lines[index],
           height: 2.0,

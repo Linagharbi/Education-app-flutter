@@ -14,9 +14,9 @@ class HomeMenus {
       'iconPath': 'assets/icons/books.png',
     },
     {
-      'title': 'Exercices',
+      'title': 'Notes',
       'itemId': 12,
-      'iconPath': 'assets/icons/write.png',
+      'iconPath': 'assets/icons/grade.png',
     },
     {
       'title': 'Evénements',
@@ -47,9 +47,9 @@ class HomeMenus {
       'iconPath': 'assets/icons/books.png',
     },
     {
-      'title': 'Exercices',
+      'title': 'Notes',
       'itemId': 22,
-      'iconPath': 'assets/icons/write.png',
+      'iconPath': 'assets/icons/grade.png',
     },
     {
       'title': 'Evénements',

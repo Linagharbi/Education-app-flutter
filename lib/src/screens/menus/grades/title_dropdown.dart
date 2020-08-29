@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
-class DropDownMenu extends StatefulWidget {
+class TitleDropDown extends StatefulWidget {
   @override
-  _DropDownMenuState createState() => _DropDownMenuState();
+  _TitleDropDownState createState() => _TitleDropDownState();
 }
 
-class _DropDownMenuState extends State<DropDownMenu> {
-  // ignore: todo
-  // TODO: Pass children list as provider to whole widgets
-  final List<String> children = [
-    "Mansour Ben Selmene",
-    "Mahdi Ben Selmene",
-    "Sarra Ben Selmene"
+class _TitleDropDownState extends State<TitleDropDown> {
+  final List<String> subjects = [
+    "Mathématiques",
+    "Sciences Vie et Terre",
+    "Sciences Physiques et Chimie"
   ];
   String selectedChild;
 
@@ -20,16 +18,16 @@ class _DropDownMenuState extends State<DropDownMenu> {
     return FittedBox(
       fit: BoxFit.scaleDown,
       child: DropdownButton<String>(
+        underline: Container(),
         hint: Text(
-          "Select child",
+          "Choisir une matière",
           style: TextStyle(
-            color: Color(0xFF8e7daf),
+            color: Colors.white70,
           ),
         ),
         icon: Icon(
-          // Add this
-          Icons.arrow_drop_down, // Add this
-          color: Colors.white, // Add this
+          Icons.arrow_drop_down,
+          color: Colors.white,
         ),
         value: selectedChild,
         style: TextStyle(
@@ -38,15 +36,17 @@ class _DropDownMenuState extends State<DropDownMenu> {
         ),
         selectedItemBuilder: (selectedChild != null)
             ? (BuildContext context) {
-                return children.map<Widget>(
+                return subjects.map<Widget>(
                   (String value) {
-                    return Center(
+                    return Container(
+                      alignment: Alignment.center,
                       child: Text(
                         selectedChild,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     );
@@ -54,7 +54,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
                 ).toList();
               }
             : null,
-        items: children.map((item) {
+        items: subjects.map((item) {
           return DropdownMenuItem(
             value: item,
             child: Text(item),

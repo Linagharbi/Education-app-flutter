@@ -47,7 +47,7 @@ dependencies:
 
   ### UserLina Dependencies
   table_calendar: ^2.2.3
-
+  flutter_svg: ^0.18.0
   ### UserLina Dependencies
 
 dev_dependencies:
@@ -75,4 +75,7 @@ flutter:
     - family: OpenSans
       fonts:
         - asset: assets/fonts/OpenSans.ttf
+    - family: avenir
+      fonts:
+        - asset: assets/fonts/avenir.ttf
   # UserSina Fonts

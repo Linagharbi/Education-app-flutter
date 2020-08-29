@@ -13,12 +13,12 @@ class TimeTable extends StatefulWidget {
 class _TimeTableState extends State<TimeTable> {
   final List<RadioModel> myDays = [
     // Index 0 (Sunday) not included
-    RadioModel(false, 'MON', DateTimeMethods().isCurrentDay(1)),
-    RadioModel(false, 'TUE', DateTimeMethods().isCurrentDay(2)),
-    RadioModel(false, 'WED', DateTimeMethods().isCurrentDay(3)),
-    RadioModel(false, 'THU', DateTimeMethods().isCurrentDay(4)),
-    RadioModel(false, 'FRI', DateTimeMethods().isCurrentDay(5)),
-    RadioModel(false, 'SAT', DateTimeMethods().isCurrentDay(6)),
+    RadioModel(false, 'LUN', DateTimeMethods().isCurrentDay(1)),
+    RadioModel(false, 'MAR', DateTimeMethods().isCurrentDay(2)),
+    RadioModel(false, 'MER', DateTimeMethods().isCurrentDay(3)),
+    RadioModel(false, 'JEU', DateTimeMethods().isCurrentDay(4)),
+    RadioModel(false, 'VEN', DateTimeMethods().isCurrentDay(5)),
+    RadioModel(false, 'SAM', DateTimeMethods().isCurrentDay(6)),
   ];
 
   // ignore: todo
@@ -31,29 +31,29 @@ class _TimeTableState extends State<TimeTable> {
       children: [
         // Text('Table for day: $tabIndex'),
         SessionWidget(
-          startTime: "13:00",
-          endTime: "14:00",
+          startTime: "8:00",
+          endTime: "9:00",
           subject: "Mathématiques",
           location: "TP-08",
           teacher: "Moncef Ben Ammar",
         ),
         SessionWidget(
-          startTime: "14:00",
-          endTime: "15:00",
+          startTime: "9:00",
+          endTime: "9:55",
           subject: "Histoire",
           location: "105",
           teacher: "Sameh Trabelsi",
         ),
         SessionWidget(
-          startTime: "15:00",
-          endTime: "16:00",
+          startTime: "10:05",
+          endTime: "11:00",
           subject: "Physique et Chimie",
           location: "TP-08",
           teacher: "Salima Mart Mo5tar",
         ),
         SessionWidget(
-          startTime: "16:00",
-          endTime: "17:00",
+          startTime: "11:00",
+          endTime: "12:00",
           subject: "Sports",
           location: "Terrain",
           teacher: "Salim Jarkom",
