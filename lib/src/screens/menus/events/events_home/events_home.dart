@@ -2,7 +2,6 @@ import 'package:education_app/src/models/event.dart';
 import 'package:education_app/src/screens/menus/events/app_state.dart';
 import 'package:education_app/src/screens/menus/events/events_details/event_details_page.dart';
 import 'package:education_app/src/screens/menus/events/styleguide.dart';
-import 'package:education_app/src/screens/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,12 +36,7 @@ class EventsHome extends StatelessWidget {
                         children: <Widget>[
                           IconButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => HomePage(),
-                                ),
-                              );
+                              Navigator.of(context).pop();
                             },
                             icon: Icon(
                               Icons.keyboard_backspace,
