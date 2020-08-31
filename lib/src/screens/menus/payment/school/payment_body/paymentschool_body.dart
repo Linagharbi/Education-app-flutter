@@ -34,6 +34,7 @@ class PaymentSchoolBody extends StatelessWidget {
               itemIndex: index,
               tranche: myTranches[index],
               press: () {
+                log("School reglements are ${myTranches[index].reglementEleve.length}");
                 Navigator.push(
                   context,
                   MaterialPageRoute(

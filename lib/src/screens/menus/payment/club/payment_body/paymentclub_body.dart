@@ -15,11 +15,12 @@ class PaymentClubBody extends StatelessWidget {
 
   Widget _buildListView(Children children) {
     if (children.selectedStudent.idClub == null) {
-      return Text("No club payments!");
+      return Center(
+        child: Text("No club payments!"),
+      );
     }
 
     log("ClubBody: Building the list view for ${children.selectedStudent.idClub}");
-    // Check if idClub != null
     Future<List<PaymentExtraTranche>> _futureExtraTranches =
         _httpService.getExtraTranches(children.selectedStudent.idClub);
     return FutureBuilder(
