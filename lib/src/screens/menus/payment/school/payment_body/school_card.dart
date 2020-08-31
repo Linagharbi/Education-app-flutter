@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/Tranche/RawTranche.dart';
+import 'package:education_app/src/models/tranche/inscriptionTranche.dart';
 import 'package:flutter/material.dart';
 
 class SchoolCard extends StatelessWidget {
@@ -10,7 +10,7 @@ class SchoolCard extends StatelessWidget {
   }) : super(key: key);
 
   final int itemIndex;
-  final RawTranche tranche;
+  final InscriptionTranche tranche;
   final Function press;
 
   @override

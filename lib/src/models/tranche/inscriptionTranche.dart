@@ -1,14 +1,15 @@
 // To parse this JSON data, do
 //
-//     final rawTranche = rawTrancheFromJson(jsonString);
+//     final inscriptionTranche = inscriptionTrancheFromJson(jsonString);
 
 import 'dart:convert';
 
-List<RawTranche> rawTrancheFromJson(String str) =>
-    List<RawTranche>.from(json.decode(str).map((x) => RawTranche.fromJson(x)));
+List<InscriptionTranche> inscriptionTrancheFromJson(String str) =>
+    List<InscriptionTranche>.from(
+        json.decode(str).map((x) => InscriptionTranche.fromJson(x)));
 
-class RawTranche {
-  RawTranche({
+class InscriptionTranche {
+  InscriptionTranche({
     this.motifPaiement,
     this.date,
     this.inscription,
@@ -40,7 +41,8 @@ class RawTranche {
   int id;
   List<ReglementEleve> reglementEleve;
 
-  factory RawTranche.fromJson(Map<String, dynamic> json) => RawTranche(
+  factory InscriptionTranche.fromJson(Map<String, dynamic> json) =>
+      InscriptionTranche(
         motifPaiement: json["MotifPaiement"],
         date: json["date"],
         inscription: json["Inscription"],

@@ -1,15 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
-import 'package:education_app/src/models/Tranche/RawTranche.dart';
-import 'package:education_app/src/models/student.dart';
+import 'package:education_app/src/models/student/student.dart';
+import 'package:education_app/src/models/tranche/inscriptionTranche.dart';
 import 'package:education_app/src/models/user.dart';
 import 'package:http/http.dart';
 
 class HttpService {
   // Local development
-  // final String myUrl = "http://192.168.1.200:3000/";
-  final String myUrl = "http://api.elite2com.com:3000/";
+  final String myUrl = "http://192.168.1.200:3000/";
+  // final String myUrl = "http://api.elite2com.com:3000/";
 
   //--------------------------GET Methods-----------------------------------//
   // Get a list of all users
@@ -27,11 +28,11 @@ class HttpService {
             .toList();
         return users;
       } else {
-        print("http_service: getAllUsers() => ${res.statusCode} ");
+        log("http_service: getAllUsers() => ${res.statusCode} ");
         return null;
       }
     } catch (e) {
-      print("http_service: Error fetching all users!");
+      log("http_service: Error fetching all users!");
       return null;
     }
   }
@@ -47,38 +48,39 @@ class HttpService {
         final List<Student> students = studentFromJson(res.body);
         return students;
       } else {
-        print("http_service: getChildren() => ${res.statusCode} ");
+        log("http_service: getChildren() => ${res.statusCode} ");
         return null;
       }
     } catch (e) {
-      print("http_service: Error fetching children!");
+      log("http_service: Error fetching children!");
       return null;
     }
   }
 
-  // Get a list of all tranches from inscription id
-  Future<List<RawTranche>> getTranches(int inscriptionId) async {
+  // Get a list of all inscription tranches from inscription id
+  Future<List<InscriptionTranche>> getTranches(int inscriptionId) async {
     try {
       String urlInscription = myUrl +
           "api/Paiements?filter[where][Inscription]=$inscriptionId&filter[include]=reglementEleve";
       Response res = await get(urlInscription);
       if (res.statusCode == 200) {
         // Successfully get request
-        final List<RawTranche> tranches = rawTrancheFromJson(res.body);
+        final List<InscriptionTranche> tranches =
+            inscriptionTrancheFromJson(res.body);
         return tranches;
       } else {
-        print("http_service: getTranches() => ${res.statusCode} ");
+        log("http_service: getTranches() => ${res.statusCode} ");
         return null;
       }
     } catch (e) {
-      print("http_service: Error fetching tranches!");
+      log("http_service: Error fetching tranches!");
       return null;
     }
   }
 
   //--------------------------POST Methods-----------------------------------//
   void postSomething() {
-    print("Posting Data");
+    log("Posting Data");
   }
 
   //--------------------------Other Methods-----------------------------------//
@@ -94,13 +96,13 @@ class HttpService {
         return false;
       }
     } on TimeoutException catch (e) {
-      print('Timeout Error: $e');
+      log('Timeout Error: $e');
       return false;
     } on SocketException catch (e) {
-      print('Socket Error: $e');
+      log('Socket Error: $e');
       return false;
     } on Error catch (e) {
-      print('General Error: $e');
+      log('General Error: $e');
       return false;
     }
   }

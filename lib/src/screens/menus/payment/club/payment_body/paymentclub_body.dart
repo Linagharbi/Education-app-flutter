@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/tranche.dart';
+import 'package:education_app/src/models/tranche/tranche.dart';
 import 'package:education_app/src/screens/menus/payment/club/details/detailsclub_screen.dart';
 import 'package:education_app/src/screens/menus/payment/club/payment_body/club_card.dart';
 import 'package:education_app/src/screens/menus/payment/dropdown_payment.dart';

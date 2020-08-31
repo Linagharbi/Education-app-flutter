@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/student.dart';
+import 'package:education_app/src/models/student/student.dart';
 import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/providers/logged_user.dart';
 import 'package:education_app/src/screens/bloc_navigation/navigation_bloc.dart';

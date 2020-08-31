@@ -21,15 +21,15 @@ class _DropDownPaymentState extends State<DropDownPayment> {
     myChildren = Provider.of<Children>(context, listen: false);
     children = myChildren.list
         .map(
-          (child) => child.frName.toCamelCase(),
+          (child) => child.nomPrenomFr.toCamelCase(),
         )
         .toList();
 
     // By default show the first child name, else show selected
     if (myChildren.selectedStudent == null) {
-      selectedChild = myChildren.list[0].frName.toCamelCase();
+      selectedChild = myChildren.list[0].nomPrenomFr.toCamelCase();
     } else {
-      selectedChild = myChildren.selectedStudent.frName.toCamelCase();
+      selectedChild = myChildren.selectedStudent.nomPrenomFr.toCamelCase();
     }
   }
 

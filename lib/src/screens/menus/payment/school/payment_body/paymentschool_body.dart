@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:education_app/src/models/Tranche/RawTranche.dart';
-import 'package:education_app/src/models/tranche.dart';
+import 'package:education_app/src/models/tranche/inscriptionTranche.dart';
+import 'package:education_app/src/models/tranche/tranche.dart';
 import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/screens/menus/payment/dropdown_payment.dart';
 import 'package:education_app/src/screens/menus/payment/school/details/detailsschool_screen.dart';
@@ -14,9 +14,9 @@ class PaymentSchoolBody extends StatelessWidget {
   final HttpService _httpService = HttpService();
 
   Widget _buildListView(Children children) {
-    log("SchoolBody: Building the lisView for ${children.selectedStudent.inscription.id}");
-    Future<List<RawTranche>> _futureTranches =
-        _httpService.getTranches(children.selectedStudent.inscription.id);
+    log("SchoolBody: Building the lisView for ${children.selectedStudent.inscriptionEleve.id}");
+    Future<List<InscriptionTranche>> _futureTranches =
+        _httpService.getTranches(children.selectedStudent.inscriptionEleve.id);
     return FutureBuilder(
       future: _futureTranches,
       builder: (context, snapshot) {
@@ -26,7 +26,7 @@ class PaymentSchoolBody extends StatelessWidget {
           );
         }
         if (snapshot.hasData) {
-          List<RawTranche> myTranches = snapshot.data;
+          List<InscriptionTranche> myTranches = snapshot.data;
           return ListView.builder(
             // here we use our demo tranches list
             itemCount: myTranches.length,

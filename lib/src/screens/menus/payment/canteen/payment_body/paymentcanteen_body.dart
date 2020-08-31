@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/tranche.dart';
+import 'package:education_app/src/models/tranche/tranche.dart';
 import 'package:education_app/src/screens/menus/payment/canteen/details/detailscanteen_screen.dart';
 import 'package:education_app/src/screens/menus/payment/canteen/payment_body/canteen_card.dart';
 import 'package:education_app/src/screens/menus/payment/dropdown_payment.dart';

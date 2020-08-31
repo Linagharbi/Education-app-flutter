@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/student.dart';
+import 'package:education_app/src/models/student/student.dart';
 import 'package:education_app/src/services/http_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

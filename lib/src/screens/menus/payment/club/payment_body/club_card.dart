@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/tranche.dart';
+import 'package:education_app/src/models/tranche/tranche.dart';
 import 'package:flutter/material.dart';
 
 class ClubCard extends StatelessWidget {
