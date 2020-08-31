@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/tranche/tranche.dart';
+import 'package:education_app/src/models/tranche/payment_extra_tranche.dart';
 import 'package:flutter/material.dart';
 
 class ClubCard extends StatelessWidget {
@@ -10,7 +10,7 @@ class ClubCard extends StatelessWidget {
   }) : super(key: key);
 
   final int itemIndex;
-  final Tranche tranche;
+  final PaymentExtraTranche tranche;
   final Function press;
 
   @override
@@ -63,7 +63,7 @@ class ClubCard extends StatelessWidget {
                   // image is square but we add extra 20 + 20 padding thats why width is 200
                   width: 50,
                   child: Image.asset(
-                    tranche.image,
+                    "assets/images/cheque.png",
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -84,7 +84,7 @@ class ClubCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(
-                        tranche.title,
+                        tranche.motif.toString(),
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),
@@ -93,7 +93,7 @@ class ClubCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(
-                        tranche.description,
+                        tranche.tauxTva.toString(),
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),
@@ -112,7 +112,7 @@ class ClubCard extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "${tranche.price}\ dinars",
+                        "${tranche.totalTtc}\ dinars",
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),

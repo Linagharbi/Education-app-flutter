@@ -39,4 +39,4 @@ http://api.elite2com.com:3000/api/PaiementExtraDetails?filter[where][PaiementExt
 ULTIMATE:
 
 1. List of (students & inscription details (school and extras)) from parent id:
-http://192.168.1.200:3000/api/ViewGetEleveInscris?filter[where][IdParent]=51&filter[include]=InscriptionEleve&filter[include]=Bus&filter[include]=Cantine&filter[include]=Club&filter[include]=Panier
+http://api.elite2com.com:3000/api/ViewGetEleveInscris?filter[where][IdParent]=51&filter[include]=InscriptionEleve&filter[include]=Bus&filter[include]=Cantine&filter[include]=Club&filter[include]=Panier

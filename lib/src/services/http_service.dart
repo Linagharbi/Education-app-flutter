@@ -3,14 +3,15 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:education_app/src/models/student/student.dart';
-import 'package:education_app/src/models/tranche/inscriptionTranche.dart';
+import 'package:education_app/src/models/tranche/payment_extra_tranche.dart';
+import 'package:education_app/src/models/tranche/payment_tranche.dart';
 import 'package:education_app/src/models/user.dart';
 import 'package:http/http.dart';
 
 class HttpService {
   // Local development
-  final String myUrl = "http://192.168.1.200:3000/";
-  // final String myUrl = "http://api.elite2com.com:3000/";
+  // final String myUrl = "http://192.168.1.200:3000/";
+  final String myUrl = "http://api.elite2com.com:3000/";
 
   //--------------------------GET Methods-----------------------------------//
   // Get a list of all users
@@ -19,7 +20,7 @@ class HttpService {
       String urlPersonnes = myUrl + "api/Personnes";
       Response res = await get(urlPersonnes);
       if (res.statusCode == 200) {
-        // Successfull get request
+        // Successful get request
         List<dynamic> body = jsonDecode(res.body);
         List<User> users = body
             .map(
@@ -41,7 +42,7 @@ class HttpService {
   Future<List<Student>> getChildren(int parentId) async {
     try {
       String urlEnfants = myUrl +
-          "api/ViewGetElevesParParents?filter[where][IdParent]=$parentId&filter[include]=InscriptionEleve";
+          "api/ViewGetEleveInscris?filter[where][IdParent]=$parentId&filter[include]=InscriptionEleve&filter[include]=Bus&filter[include]=Cantine&filter[include]=Club&filter[include]=Panier";
       Response res = await get(urlEnfants);
       if (res.statusCode == 200) {
         // Successfull get request
@@ -57,16 +58,15 @@ class HttpService {
     }
   }
 
-  // Get a list of all inscription tranches from inscription id
-  Future<List<InscriptionTranche>> getTranches(int inscriptionId) async {
+  // Get a list of all payment tranches from inscription id
+  Future<List<PaymentTranche>> getTranches(int inscriptionId) async {
     try {
-      String urlInscription = myUrl +
+      String urlPayment = myUrl +
           "api/Paiements?filter[where][Inscription]=$inscriptionId&filter[include]=reglementEleve";
-      Response res = await get(urlInscription);
+      Response res = await get(urlPayment);
       if (res.statusCode == 200) {
-        // Successfully get request
-        final List<InscriptionTranche> tranches =
-            inscriptionTrancheFromJson(res.body);
+        // Successful get request
+        final List<PaymentTranche> tranches = paymentTrancheFromJson(res.body);
         return tranches;
       } else {
         log("http_service: getTranches() => ${res.statusCode} ");
@@ -74,6 +74,28 @@ class HttpService {
       }
     } catch (e) {
       log("http_service: Error fetching tranches!");
+      return null;
+    }
+  }
+
+  // Get a list of all extra payment tranches from extra payment id
+  Future<List<PaymentExtraTranche>> getExtraTranches(int extraPaymentId) async {
+    try {
+      String urlExtraPayment = myUrl +
+          "api/PaiementExtraDetails?filter[where][PaiementExtras]=$extraPaymentId&filter[include]=reglementEleve";
+      Response res = await get(urlExtraPayment);
+      if (res.statusCode == 200) {
+        // Successful get request
+        final List<PaymentExtraTranche> extraTranches =
+            paymentExtraTrancheFromJson(res.body);
+        return extraTranches;
+      } else {
+        log("http_service: getExtraTranches() => ${res.statusCode} ");
+        return null;
+      }
+    } catch (e) {
+      log("http_service: Error fetching extra tranches!");
+      print(e);
       return null;
     }
   }

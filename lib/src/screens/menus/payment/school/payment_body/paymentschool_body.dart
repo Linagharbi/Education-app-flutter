@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:education_app/src/models/tranche/inscriptionTranche.dart';
+import 'package:education_app/src/models/tranche/payment_tranche.dart';
 import 'package:education_app/src/models/tranche/tranche.dart';
 import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/screens/menus/payment/dropdown_payment.dart';
@@ -14,8 +14,8 @@ class PaymentSchoolBody extends StatelessWidget {
   final HttpService _httpService = HttpService();
 
   Widget _buildListView(Children children) {
-    log("SchoolBody: Building the lisView for ${children.selectedStudent.inscriptionEleve.id}");
-    Future<List<InscriptionTranche>> _futureTranches =
+    log("PaymentBody: Building the listView for ${children.selectedStudent.inscriptionEleve.id}");
+    Future<List<PaymentTranche>> _futureTranches =
         _httpService.getTranches(children.selectedStudent.inscriptionEleve.id);
     return FutureBuilder(
       future: _futureTranches,
@@ -26,7 +26,7 @@ class PaymentSchoolBody extends StatelessWidget {
           );
         }
         if (snapshot.hasData) {
-          List<InscriptionTranche> myTranches = snapshot.data;
+          List<PaymentTranche> myTranches = snapshot.data;
           return ListView.builder(
             // here we use our demo tranches list
             itemCount: myTranches.length,
@@ -38,7 +38,7 @@ class PaymentSchoolBody extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailsSchoolScreen(
-                      tranche: tranches[index],
+                      tranche: tranches[0],
                     ),
                   ),
                 );
