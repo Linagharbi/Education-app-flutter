@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/tranche/payment_tranche.dart';
+import 'package:education_app/src/models/payment/tranche/payment_tranche.dart';
 import 'package:flutter/material.dart';
 
 class SchoolCard extends StatelessWidget {

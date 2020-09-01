@@ -1,21 +1,7 @@
-// To parse this JSON data, do
-//
-//     final paymentTranche = paymentTrancheFromJson(jsonString);
-
-import 'dart:convert';
-
-import 'package:education_app/src/models/tranche/reglement.dart';
-
-List<PaymentTranche> paymentTrancheFromJson(String str) =>
-    List<PaymentTranche>.from(
-        json.decode(str).map((x) => PaymentTranche.fromJson(x)));
-
-class PaymentTranche {
-  PaymentTranche({
-    this.motifPaiement,
+class InscriptionExtra {
+  InscriptionExtra({
     this.date,
     this.inscription,
-    this.tranche,
     this.totalHt,
     this.tauxRemise,
     this.totalRemise,
@@ -24,14 +10,16 @@ class PaymentTranche {
     this.totalTva,
     this.totalTtc,
     this.montantRestant,
+    this.paiementmotif,
+    this.personne,
+    this.anneeScolaire,
+    this.classe,
+    this.modalite,
     this.id,
-    this.reglementEleve,
   });
 
-  dynamic motifPaiement;
   dynamic date;
   int inscription;
-  String tranche;
   double totalHt;
   double tauxRemise;
   double totalRemise;
@@ -40,14 +28,17 @@ class PaymentTranche {
   double totalTva;
   double totalTtc;
   double montantRestant;
+  int paiementmotif;
+  int personne;
+  int anneeScolaire;
+  int classe;
+  int modalite;
   int id;
-  List<ReglementEleve> reglementEleve;
 
-  factory PaymentTranche.fromJson(Map<String, dynamic> json) => PaymentTranche(
-        motifPaiement: json["MotifPaiement"],
+  factory InscriptionExtra.fromJson(Map<String, dynamic> json) =>
+      InscriptionExtra(
         date: json["date"],
         inscription: json["Inscription"],
-        tranche: json["Tranche"],
         totalHt: json["TotalHT"].toDouble(),
         tauxRemise: json["TauxRemise"].toDouble(),
         totalRemise: json["TotalRemise"].toDouble(),
@@ -56,8 +47,11 @@ class PaymentTranche {
         totalTva: json["TotalTVA"].toDouble(),
         totalTtc: json["TotalTTC"].toDouble(),
         montantRestant: json["MontantRestant"].toDouble(),
+        paiementmotif: json["paiementmotif"],
+        personne: json["Personne"],
+        anneeScolaire: json["AnneeScolaire"],
+        classe: json["Classe"],
+        modalite: json["Modalite"],
         id: json["id"],
-        reglementEleve: List<ReglementEleve>.from(
-            json["reglementEleve"].map((x) => ReglementEleve.fromJson(x))),
       );
 }

@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:education_app/src/models/tranche/payment_tranche.dart';
-import 'package:education_app/src/models/tranche/tranche.dart';
+import 'package:education_app/src/models/payment/tranche/payment_tranche.dart';
+import 'package:education_app/src/models/payment/tranche/tranche.dart';
 import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/screens/menus/payment/dropdown_payment.dart';
 import 'package:education_app/src/screens/menus/payment/school/details/detailsschool_screen.dart';

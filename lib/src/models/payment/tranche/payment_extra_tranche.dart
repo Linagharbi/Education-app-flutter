@@ -4,11 +4,14 @@
 
 import 'dart:convert';
 
-import 'package:education_app/src/models/tranche/reglement.dart';
+import 'package:education_app/src/models/payment/tranche/reglement.dart';
 
 List<PaymentExtraTranche> paymentExtraTrancheFromJson(String str) =>
     List<PaymentExtraTranche>.from(
-        json.decode(str).map((x) => PaymentExtraTranche.fromJson(x)));
+      json.decode(str).map(
+            (x) => PaymentExtraTranche.fromJson(x),
+          ),
+    );
 
 class PaymentExtraTranche {
   PaymentExtraTranche({
@@ -53,6 +56,9 @@ class PaymentExtraTranche {
         motif: json["Motif"],
         id: json["id"],
         reglementEleve: List<ReglementEleve>.from(
-            json["reglementEleve"].map((x) => ReglementEleve.fromJson(x))),
+          json["reglementEleve"].map(
+            (x) => ReglementEleve.fromJson(x),
+          ),
+        ),
       );
 }

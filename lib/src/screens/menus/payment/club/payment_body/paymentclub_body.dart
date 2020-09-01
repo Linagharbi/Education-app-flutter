@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:education_app/src/models/tranche/payment_extra_tranche.dart';
-import 'package:education_app/src/models/tranche/tranche.dart';
+import 'package:education_app/src/models/payment/tranche/payment_extra_tranche.dart';
+import 'package:education_app/src/models/payment/tranche/tranche.dart';
 import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/screens/menus/payment/club/details/detailsclub_screen.dart';
 import 'package:education_app/src/screens/menus/payment/club/payment_body/club_card.dart';

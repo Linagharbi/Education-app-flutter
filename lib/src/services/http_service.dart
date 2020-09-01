@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-import 'package:education_app/src/models/student/student.dart';
-import 'package:education_app/src/models/tranche/payment_extra_tranche.dart';
-import 'package:education_app/src/models/tranche/payment_tranche.dart';
+import 'package:education_app/src/models/student.dart';
+import 'package:education_app/src/models/payment/tranche/payment_extra_tranche.dart';
+import 'package:education_app/src/models/payment/tranche/payment_tranche.dart';
 import 'package:education_app/src/models/user.dart';
 import 'package:http/http.dart';
 
@@ -42,7 +42,7 @@ class HttpService {
   Future<List<Student>> getChildren(int parentId) async {
     try {
       String urlEnfants = myUrl +
-          "api/ViewGetEleveInscris?filter[where][IdParent]=$parentId&filter[include]=InscriptionEleve&filter[include]=Bus&filter[include]=Cantine&filter[include]=Club&filter[include]=Panier";
+          "api/ViewGetEleveInscris?filter[where][IdParent]=$parentId&filter[include]=InscriptionEleve&filter[include]=Bus&filter[include]=Cantine&filter[include]=Club&filter[include]=Panier&filter[include]=Retards&filter[include]=Absences&filter[include]=Avertissements&filter[include]=Blames";
       Response res = await get(urlEnfants);
       if (res.statusCode == 200) {
         // Successfull get request

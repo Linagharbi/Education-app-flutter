@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/tranche/tranche.dart';
+import 'package:education_app/src/models/payment/tranche/tranche.dart';
 import 'package:education_app/src/screens/menus/payment/school/details/widgets/detailsschool_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
