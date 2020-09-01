@@ -39,8 +39,6 @@ class MenuChoice {
         return Discipline();
       case 26: //Paiments
         return Payment();
-      case 27: //Contact
-        return ProfilePage();
 
       // Teacher:
       case 31: //Emploi

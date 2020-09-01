@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProfilePage extends StatefulWidget with NavigationStates {
+class ContactPage extends StatefulWidget with NavigationStates {
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _ContactPageState createState() => _ContactPageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _ContactPageState extends State<ContactPage> {
   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
   //Circular Image
   Positioned myImages(String images) {
@@ -44,15 +44,6 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
-  // _linkedinURL(String $profileName) async {
-  //   var url = 'https://linkedin.com/' + $profileName;
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
-
   _facebookURL(String $profileName) async {
     var url = 'https://www.facebook.com/ISEcollegelycee';
     if (await canLaunch(url)) {
@@ -63,7 +54,8 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   //Center Widget
-  Center profilePage(String profileName, String location, String webLink) {
+  Center profilePage(
+      String profileName, String location, String webLink, String phone) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -85,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: Text(
                       profileName,
                       style: TextStyle(
-                          color: new Color(0xFF40BAD5),
+                          color: new Color(0xff1a237e),
                           fontWeight: FontWeight.bold,
                           fontSize: 24.0),
                     ),
@@ -97,13 +89,13 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Row(
                           children: <Widget>[
                             Icon(FontAwesomeIcons.mapMarker,
-                                color: Color(0xffed1e79), size: 20.0),
+                                color: Colors.yellow[700], size: 20.0),
                             SizedBox(width: 10.0),
                             InkWell(
                               child: Text(
                                 location,
                                 style: TextStyle(
-                                    color: new Color(0xFF40BAD5),
+                                    color: new Color(0xff1a237e),
                                     fontSize: 20.0),
                               ),
                               onTap: () {
@@ -118,17 +110,33 @@ class _ProfilePageState extends State<ProfilePage> {
                   Row(
                     children: <Widget>[
                       Icon(FontAwesomeIcons.link,
-                          color: Color(0xffed1e79), size: 20.0),
+                          color: Colors.yellow[700], size: 20.0),
                       SizedBox(width: 10.0),
                       InkWell(
                         child: Text(
                           webLink,
                           style: TextStyle(
-                              color: new Color(0xFF40BAD5), fontSize: 20.0),
+                              color: new Color(0xff1a237e), fontSize: 20.0),
                         ),
                         onTap: () {
                           _openURL();
                         },
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 9.0),
+                  Row(
+                    children: <Widget>[
+                      Icon(FontAwesomeIcons.phone,
+                          color: Colors.yellow[700], size: 20.0),
+                      SizedBox(width: 10.0),
+                      InkWell(
+                        child: Text(
+                          phone,
+                          style: TextStyle(
+                              color: new Color(0xff1a237e), fontSize: 20.0),
+                        ),
+                        onTap: () {},
                       ),
                     ],
                   ),
@@ -145,7 +153,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Padding(
                                   padding: EdgeInsets.all(8.0),
                                   child: Icon(FontAwesomeIcons.facebook,
-                                      color: Color(0xff125DDE), size: 35.0),
+                                      color: Color(0xff1a237e), size: 35.0),
                                 )),
                             onTap: () {
                               _facebookURL("ise");
@@ -179,7 +187,7 @@ class _ProfilePageState extends State<ProfilePage> {
               decoration: BoxDecoration(
                 gradient: new LinearGradient(
                   colors: [
-                    const Color(0xFF40BAD5),
+                    const Color(0xffffffff),
                     const Color(0xffffffff),
                   ],
                   begin: Alignment.centerRight,
@@ -188,10 +196,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               child: Stack(
                 children: <Widget>[
-                  profilePage("ISE Collège & Lycée", "Nabeul", "Site Web"),
+                  profilePage("ISE Collège & Lycée", "Adresse", "Site Web",
+                      "99 555 222"),
                   ProfileImageWidget(),
-                  // backPage(),
-                  // nextPage(),
                 ],
               ),
             ),
@@ -208,7 +215,7 @@ class _ProfilePageState extends State<ProfilePage> {
       decoration: BoxDecoration(
         gradient: new LinearGradient(
           colors: [
-            const Color(0xFF40BAD5),
+            const Color(0xffffffff),
             const Color(0xffffffff),
           ],
           begin: Alignment.centerRight,
@@ -221,43 +228,21 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.arrowLeft,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      //
-                    }),
-              ),
-            ),
+            // Spacer(),
+            SizedBox(width: 165.0),
             Expanded(
               flex: 5,
               child: Container(
                 child: Text(
                   'Contact',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20.0),
+                    color: Colors.yellow[700],
+                    // color: Color(0xff1a237e),
+
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20.0,
+                  ),
                 ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.search,
-                      color: Colors.white,
-                      size: 20.0,
-                    ),
-                    onPressed: () {
-                      //
-                    }),
               ),
             ),
           ],
@@ -298,7 +283,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
             icon: (_isFavorited
                 ? Icon(Icons.favorite)
                 : Icon(Icons.favorite_border)),
-            color: Color(0xffed1e79),
+            color: Color(0xFF40BAD5),
             onPressed: _toggleFavorite,
           ),
         ),

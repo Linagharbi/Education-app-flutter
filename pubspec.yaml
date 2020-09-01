@@ -47,6 +47,8 @@ dependencies:
   ### UserLina Dependencies
   table_calendar: ^2.2.3
   flutter_svg: ^0.18.0
+  font_awesome_flutter: ^8.2.0
+  url_launcher: ^5.1.6
   ### UserLina Dependencies
 
 dev_dependencies:
