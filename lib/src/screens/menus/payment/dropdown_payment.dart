@@ -1,27 +1,45 @@
+import 'package:education_app/src/utils/format_string.dart';
+import 'package:education_app/src/providers/children.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class DropDownList extends StatefulWidget {
+class DropDownPayment extends StatefulWidget {
   @override
-  _DropDownListState createState() => _DropDownListState();
+  _DropDownPaymentState createState() => _DropDownPaymentState();
 }
 
-class _DropDownListState extends State<DropDownList> {
-  // ignore: todo
-  // TODO: Pass children list as provider to whole widgets
-  final List<String> children = [
-    "Mansour Ben Selmene",
-    "Mahdi Ben Selmene",
-    "Sarra Ben Selmene"
-  ];
+class _DropDownPaymentState extends State<DropDownPayment> {
+  Children myChildren;
+  List<String> children = [];
   String selectedChild;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Build the dropdown & set the selected child in UI and in provider
+    myChildren = Provider.of<Children>(context, listen: false);
+    children = myChildren.list
+        .map(
+          (child) => child.nomPrenomFr.toCamelCase(),
+        )
+        .toList();
+
+    // By default show the first child name, else show selected
+    if (myChildren.selectedStudent == null) {
+      selectedChild = myChildren.list[0].nomPrenomFr.toCamelCase();
+    } else {
+      selectedChild = myChildren.selectedStudent.nomPrenomFr.toCamelCase();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       hint: Text(
-        "Select child",
+        "Selectionnez un enfant",
         style: TextStyle(
-          color: Color(0xFF8e7daf),
+          color: Colors.white54,
         ),
       ),
       icon: Icon(
@@ -43,8 +61,8 @@ class _DropDownListState extends State<DropDownList> {
                       selectedChild,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   );
@@ -61,6 +79,7 @@ class _DropDownListState extends State<DropDownList> {
       onChanged: (value) {
         setState(() {
           selectedChild = value;
+          myChildren.setStudent(myChildren.list[(children.indexOf(value))]);
         });
       },
     );

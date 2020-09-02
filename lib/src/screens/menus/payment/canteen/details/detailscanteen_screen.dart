@@ -1,4 +1,4 @@
-import 'package:education_app/src/models/tranche.dart';
+import 'package:education_app/src/models/payment/tranche/tranche.dart';
 import 'package:education_app/src/screens/menus/payment/canteen/details/widgets/detailscanteen_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

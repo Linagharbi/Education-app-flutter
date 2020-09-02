@@ -1,5 +1,4 @@
 import 'package:education_app/src/screens/menus/payment/club/payment_body/paymentclub_body.dart';
-import 'package:education_app/src/screens/menus/payment/dropdownlist.dart';
 import 'package:flutter/material.dart';
 
 class ClubPayment extends StatelessWidget {
@@ -18,12 +17,6 @@ class ClubPayment extends StatelessWidget {
       centerTitle: true,
       backgroundColor: Colors.transparent,
       title: Text('Club'),
-      actions: <Widget>[
-        Padding(
-          padding: EdgeInsets.only(left: 53),
-          child: DropDownList(),
-        )
-      ],
     );
   }
 }

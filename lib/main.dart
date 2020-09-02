@@ -1,3 +1,4 @@
+import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/providers/logged_user.dart';
 import 'package:education_app/src/services/push_notification.dart';
 import 'package:flutter/material.dart';
@@ -27,10 +28,17 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return OverlaySupport(
-      // Pass the loggedUser as a provider, if other providers
-      // exist, pass a MultiProvider with list providers
-      child: ChangeNotifierProvider<LoggedUser>(
-        create: (context) => LoggedUser(),
+      // Pass a MultiProvider with a list of providers
+      // ! Providers must be above MaterialApp to work with navigation pop
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<LoggedUser>(
+            create: (context) => LoggedUser(),
+          ),
+          ChangeNotifierProvider<Children>(
+            create: (context) => Children(),
+          ),
+        ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "Flutter Login UI",

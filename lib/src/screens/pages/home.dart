@@ -1,3 +1,5 @@
+import 'package:education_app/src/models/student.dart';
+import 'package:education_app/src/providers/children.dart';
 import 'package:education_app/src/providers/logged_user.dart';
 import 'package:education_app/src/screens/bloc_navigation/navigation_bloc.dart';
 import 'package:education_app/src/utils/choose_menu.dart';
@@ -6,8 +8,26 @@ import 'package:education_app/src/widgets/item_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget with NavigationStates {
+class HomePage extends StatefulWidget with NavigationStates {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final MenuChoice _menuChoice = MenuChoice();
+  Future<List<Student>> _futureChildren;
+
+  @override
+  void initState() {
+    super.initState();
+    LoggedUser loggedUser = Provider.of<LoggedUser>(context, listen: false);
+    Children myChildren = Provider.of<Children>(context, listen: false);
+
+    // Build the children list and UI from future
+    _futureChildren = myChildren.getTheChildren(loggedUser.info.id);
+  }
+
+  // On menu Item click
   void changeView(BuildContext context, {int itemId}) {
     Navigator.push(
       context,
@@ -17,14 +37,36 @@ class HomePage extends StatelessWidget with NavigationStates {
     );
   }
 
+  // Build the GridView
+  Widget _buildGridView(List<Map<String, Object>> currentList) {
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return GridView.count(
+          crossAxisCount: orientation == Orientation.portrait ? 3 : 5,
+          children: currentList
+              .map(
+                (item) => ItemIcon(
+                  label: item['title'],
+                  icon: AssetImage(item['iconPath']),
+                  changeView: changeView,
+                  itemId: item['itemId'],
+                ),
+              )
+              .toList(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final loggedUser = Provider.of<LoggedUser>(context, listen: false);
+    Children myChildren = Provider.of<Children>(context, listen: false);
+
     List<Map<String, Object>> currentList;
     HomeMenus menus = HomeMenus();
 
     // Pick a list depending on the nature of the user
-    print("FROM_home: Nature: ${loggedUser.info.nature}");
     switch (loggedUser.info.nature) {
       case "eleve":
         currentList = menus.student;
@@ -68,6 +110,7 @@ class HomePage extends StatelessWidget with NavigationStates {
             ),
             Expanded(
               child: Container(
+                width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.only(
                   left: 10,
                   right: 10,
@@ -82,24 +125,23 @@ class HomePage extends StatelessWidget with NavigationStates {
                     bottomRight: Radius.circular(50),
                   ),
                 ),
-                child: OrientationBuilder(
-                  builder: (context, orientation) {
-                    return GridView.count(
-                      crossAxisCount:
-                          orientation == Orientation.portrait ? 3 : 5,
-                      children: currentList
-                          .map(
-                            (item) => ItemIcon(
-                              label: item['title'],
-                              icon: AssetImage(item['iconPath']),
-                              changeView: changeView,
-                              itemId: item['itemId'],
-                            ),
-                          )
-                          .toList(),
-                    );
-                  },
-                ),
+                child: (loggedUser.info.nature == "parent")
+                    ? FutureBuilder(
+                        // Construct the children provider list from api if parent only
+                        future: _futureChildren,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            myChildren.setChildren(snapshot.data);
+                            return _buildGridView(currentList);
+                          } else if (snapshot.hasError) {
+                            return Text("${snapshot.error}");
+                          }
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        },
+                      )
+                    : _buildGridView(currentList),
               ),
             ),
           ],

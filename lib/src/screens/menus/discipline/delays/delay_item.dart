@@ -1,6 +1,14 @@
+import 'package:education_app/src/models/discipline/delay.dart';
+import 'package:education_app/src/utils/format_string.dart';
+import 'package:education_app/src/utils/datetime_methods.dart';
 import 'package:flutter/material.dart';
 
 class DelayDetail extends StatelessWidget {
+  final int itemIndex;
+  final Delay delay;
+
+  DelayDetail({this.itemIndex, this.delay});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +35,7 @@ class DelayDetail extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 5),
               child: Text(
-                "Problème de transport",
+                delay.definition,
                 style: TextStyle(
                   color: Colors.red,
                   fontSize: 18,
@@ -58,7 +66,7 @@ class DelayDetail extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: '17 August 2020',
+                            text: DateTimeMethods().getDMonthY(delay.date),
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
@@ -83,7 +91,7 @@ class DelayDetail extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: '8:15',
+                            text: delay.heure,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
@@ -108,7 +116,7 @@ class DelayDetail extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: '15 minutes',
+                            text: delay.duree,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
@@ -133,7 +141,7 @@ class DelayDetail extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: 'Français',
+                            text: delay.matiere.toCamelCase(),
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,

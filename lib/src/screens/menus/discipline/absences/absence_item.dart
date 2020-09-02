@@ -1,6 +1,12 @@
+import 'package:education_app/src/models/discipline/absence.dart';
+import 'package:education_app/src/utils/datetime_methods.dart';
 import 'package:flutter/material.dart';
 
 class AbsenceDetail extends StatelessWidget {
+  final int itemIndex;
+  final Absence absence;
+  AbsenceDetail({this.itemIndex, this.absence});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +33,7 @@ class AbsenceDetail extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 5),
               child: Text(
-                "Maladie",
+                absence.definition,
                 style: TextStyle(
                   color: Colors.red,
                   fontSize: 18,
@@ -58,7 +64,7 @@ class AbsenceDetail extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: '17 August 2020',
+                            text: DateTimeMethods().getDMonthY(absence.date),
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
@@ -83,7 +89,7 @@ class AbsenceDetail extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: '8:00 à 17:00',
+                            text: absence.periode,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
@@ -108,7 +114,7 @@ class AbsenceDetail extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: '7 heures',
+                            text: absence.duree.toLowerCase(),
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,

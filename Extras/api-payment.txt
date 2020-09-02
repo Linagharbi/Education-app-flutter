@@ -1,0 +1,42 @@
+Get actif school year: (global variable)
+http://api.elite2com.com:3000/Api/AnneeScolaires?filter[where][Actif]=1
+-----------------------------------------------------------------------------------------------------------------------
+
+Get "students" from "parent id" :
+http://api.elite2com.com:3000/api/ViewGetElevesParParents?filter[where][IdParent]=33&filter[include]=InscriptionEleve
+
+
+Get "tranches" from "inscription id":
+    Payment Scolaire:
+        http://api.elite2com.com:3000/api/Paiements?filter[where][Inscription]=205&filter[include]=reglementEleve
+    
+
+2 Children example:
+http://api.elite2com.com:3000/api/ViewGetElevesParParents?filter[where][IdParent]=33&filter[include]=InscriptionEleve&filter[include]=InscriptionExtra
+
+1 Child example:
+http://api.elite2com.com:3000/api/ViewGetElevesParParents?filter[where][IdParent]=336&filter[include]=InscriptionEleve&filter[include]=InscriptionExtra
+
+//
+// Above is obsolete, TODO: Update apis 
+//
+
+FINAL:
+
+1 .List of (students & inscription details) from parent id:
+(FOR DROPDOWN)
+(Test with 336 & 33)
+http://api.elite2com.com:3000/api/ViewGetElevesParParents?filter[where][IdParent]=336&filter[include]=InscriptionEleve&filter[include]=InscriptionExtra
+
+2.0 .List of Tranches & reglements from inscription id (scolaire only):
+(FOR A LIST OF TRANCHES then FOR LIST OF EACH TRANCHE)
+http://api.elite2com.com:3000/api/Paiements?filter[where][Inscription]=222&filter[include]=reglementEleve
+
+2.1 .List of Tranches & reglements from inscription id (non scolaire only):
+(FOR A LIST OF TRANCHES then FOR LIST OF EACH TRANCHE)
+http://api.elite2com.com:3000/api/PaiementExtraDetails?filter[where][PaiementExtras]=1&filter[include]=reglementEleve
+
+ULTIMATE:
+
+1. List of (students & inscription details (school and extras)) from parent id:
+http://api.elite2com.com:3000/api/ViewGetEleveInscris?filter[where][IdParent]=51&filter[include]=InscriptionEleve&filter[include]=Bus&filter[include]=Cantine&filter[include]=Club&filter[include]=Panier

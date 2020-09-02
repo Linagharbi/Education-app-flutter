@@ -4,8 +4,6 @@ import 'package:education_app/src/services/firestore_db.dart';
 import 'package:education_app/src/services/http_service.dart';
 import 'package:education_app/src/services/push_notification.dart';
 import 'package:flutter/material.dart';
-
-// import 'package:education_app/globals.dart' as globals;
 import 'package:provider/provider.dart';
 
 class Authentificate {
@@ -55,9 +53,10 @@ class Authentificate {
       print("Email: $email");
       print("Password: $password");
 
+      // FIXME: Use this in production
       // DEVONLY:
       User myUser = new User(
-        id: 999,
+        id: 33,
         firstName: "admin",
         lastName: "admin",
         email: "admin@admin.com",
@@ -65,9 +64,8 @@ class Authentificate {
         password: "admin",
         nature: "parent",
       );
-
-      // FIXME: Use this in production
-      // // Check connection to website before proceeding any further
+      // PRODUCTION:
+      // Check connection to website before proceeding any further
       // if (!(await _httpService.checkConnection())) {
       //   displayAlert(
       //     context,
@@ -80,8 +78,8 @@ class Authentificate {
       // User myUser = await getUserFromCreds(email, password);
       // FIXME: Use this in production
       final loggedUser = Provider.of<LoggedUser>(context, listen: false);
+
       loggedUser.setUser(myUser);
-      // globals.setLoggedUser(myUser);
 
       // If myUser is not null then navigate to main
       // and pass the user as parameter
