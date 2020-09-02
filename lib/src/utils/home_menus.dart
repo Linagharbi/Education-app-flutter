@@ -71,11 +71,6 @@ class HomeMenus {
       'itemId': 26,
       'iconPath': 'assets/icons/payment.png',
     },
-    {
-      'title': 'Contact',
-      'itemId': 27,
-      'iconPath': 'assets/icons/phone.png',
-    },
   ];
   final List<Map<String, Object>> teacher = [
     {

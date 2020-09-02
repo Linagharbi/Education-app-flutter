@@ -148,6 +148,15 @@ class _SideBarState extends State<SideBar>
                           endIndent: 32,
                         ),
                         MenuItem(
+                          icon: Icons.contact_phone,
+                          title: "Contact",
+                          onTap: () {
+                            onIconPressed();
+                            BlocProvider.of<NavigationBloc>(context)
+                                .add(NavigationEvents.ContactClickedEvent);
+                          },
+                        ),
+                        MenuItem(
                           icon: Icons.settings,
                           title: "Settings",
                           onTap: () {
