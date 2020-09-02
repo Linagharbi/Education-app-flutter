@@ -1,6 +1,11 @@
+import 'package:education_app/src/models/discipline/warning.dart';
 import 'package:flutter/material.dart';
 
 class WarningDetail extends StatelessWidget {
+  final int itemIndex;
+  final Warning warning;
+  WarningDetail({this.itemIndex, this.warning});
+
   @override
   Widget build(BuildContext context) {
     return Container(

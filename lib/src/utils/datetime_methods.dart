@@ -17,4 +17,12 @@ class DateTimeMethods {
     int currentDay = DateTime.now().weekday;
     return index == currentDay;
   }
+
+  // Day formatting
+  String getDMonthY(DateTime date) {
+    // ignore: todo
+    // TODO: Make switch case from M (1 M only (number))
+    // for french formatting
+    return DateFormat('d MMMM y').format(date);
+  }
 }

@@ -1,6 +1,11 @@
+import 'package:education_app/src/models/discipline/blame.dart';
 import 'package:flutter/material.dart';
 
 class BlameDetail extends StatelessWidget {
+  final int itemIndex;
+  final Blame blame;
+  BlameDetail({this.itemIndex, this.blame});
+
   @override
   Widget build(BuildContext context) {
     return Container(
