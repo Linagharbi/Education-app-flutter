@@ -1,3 +1,4 @@
+import 'package:education_app/src/screens/menus/lessons/CoursePage.dart';
 import 'package:education_app/src/screens/menus/lessons/search_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -244,10 +245,20 @@ class _LessonsState extends State<Lessons> {
   }
 
   void openCoursePage(String teacher, String img, String title) {
-    Navigator.pushNamed(
+    // Navigator.pushNamed(
+    //   context,
+    //   '/lessons',
+    //   arguments: {'teacher': '$teacher', 'img': '$img', 'title': '$title'},
+    // );
+    Navigator.push(
       context,
-      '/menu',
-      arguments: {'teacher': '$teacher', 'img': '$img', 'title': '$title'},
+      MaterialPageRoute(
+        builder: (context) => CoursePage(
+          chosenTeacher: teacher,
+          chosenImg: img,
+          chosenTitle: title,
+        ),
+      ),
     );
   }
 }

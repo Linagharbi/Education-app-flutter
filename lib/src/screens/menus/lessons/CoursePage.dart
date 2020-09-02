@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
 class CoursePage extends StatefulWidget {
+  final String chosenImg;
+  final String chosenTitle;
+  final String chosenTeacher;
+
+  CoursePage({this.chosenImg, this.chosenTitle, this.chosenTeacher});
   @override
   _CoursePageState createState() => _CoursePageState();
 }
 
 class _CoursePageState extends State<CoursePage> {
-  String chosenImg;
-  String chosenTitle;
-  String chosenTeacher;
   @override
   Widget build(BuildContext context) {
-    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
-    chosenImg = arguments['img'];
-    chosenTitle = arguments['title'];
-    chosenTeacher = arguments['teacher'];
+    // final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+    // chosenImg = arguments['img'];
+    // chosenTitle = arguments['title'];
+    // chosenTeacher = arguments['teacher'];
 
     return Scaffold(
       appBar: AppBar(
@@ -45,7 +47,7 @@ class _CoursePageState extends State<CoursePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              '\ Bienvenue au cours du $chosenTitle',
+              '\ Bienvenue au cours du ${widget.chosenTitle}',
               style: TextStyle(
                 color: Color(0xff2657ce),
                 fontSize: 16,
@@ -68,14 +70,15 @@ class _CoursePageState extends State<CoursePage> {
                 color: Color(0xffff5954),
               ),
               child: Hero(
-                tag: '$chosenImg',
+                tag: '${widget.chosenImg}',
                 child: Container(
                   height: 150,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                     image: DecorationImage(
-                      image: AssetImage('assets/images/$chosenImg.png'),
+                      image:
+                          AssetImage('assets/images/${widget.chosenImg}.png'),
                     ),
                   ),
                 ),
@@ -113,7 +116,7 @@ class _CoursePageState extends State<CoursePage> {
                         ),
                       ),
                       Text(
-                        "$chosenTeacher",
+                        "${widget.chosenTeacher}",
                         style: TextStyle(
                           color: Colors.black.withOpacity(0.7),
                         ),
