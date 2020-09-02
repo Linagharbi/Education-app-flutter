@@ -15,19 +15,19 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return ThemeProvider(
       initTheme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
         fontFamily: 'SFProText',
-        primaryColor: Color(0xFF212121),
-        canvasColor: Color(0xFF212121),
-        backgroundColor: Color(0xFF373737),
+        primaryColor: Color(0xFFFFFFFF),
+        canvasColor: Color(0xFFFFFFFF),
+        backgroundColor: Color(0xFFF3F7FB),
         accentColor: Color(0xFFFFC107),
         iconTheme: ThemeData.dark().iconTheme.copyWith(
-              color: Color(0xFFF3F7FB),
+              color: Color(0xFF373737),
             ),
         textTheme: ThemeData.dark().textTheme.apply(
               fontFamily: 'SFProText',
-              bodyColor: Color(0xFFF3F7FB),
-              displayColor: Color(0xFFF3F7FB),
+              bodyColor: Color(0xFF373737),
+              displayColor: Color(0xFF373737),
             ),
       ),
       child: Builder(
@@ -123,77 +123,12 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
 
-    var themeSwitcher = ThemeSwitcher(
-      builder: (context) {
-        return AnimatedCrossFade(
-          duration: Duration(milliseconds: 200),
-          crossFadeState:
-              ThemeProvider.of(context).brightness == Brightness.dark
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
-          firstChild: GestureDetector(
-            onTap: () => ThemeSwitcher.of(context).changeTheme(
-              theme: ThemeData(
-                brightness: Brightness.light,
-                fontFamily: 'SFProText',
-                primaryColor: Color(0xFFFFFFFF),
-                canvasColor: Color(0xFFFFFFFF),
-                backgroundColor: Color(0xFFF3F7FB),
-                accentColor: Color(0xFFFFC107),
-                iconTheme: ThemeData.light().iconTheme.copyWith(
-                      color: Color(0xFF373737),
-                    ),
-                textTheme: ThemeData.light().textTheme.apply(
-                      fontFamily: 'SFProText',
-                      bodyColor: Color(0xFF373737),
-                      displayColor: Color(0xFF373737),
-                    ),
-              ),
-            ),
-            child: Icon(
-              LineAwesomeIcons.sun,
-              size: ScreenUtil().setSp(10.w * 3),
-            ),
-          ),
-          secondChild: GestureDetector(
-            onTap: () => ThemeSwitcher.of(context).changeTheme(
-              theme: ThemeData(
-                brightness: Brightness.dark,
-                fontFamily: 'SFProText',
-                primaryColor: Color(0xFF212121),
-                canvasColor: Color(0xFF212121),
-                backgroundColor: Color(0xFF373737),
-                accentColor: Color(0xFFFFC107),
-                iconTheme: ThemeData.dark().iconTheme.copyWith(
-                      color: Color(0xFFF3F7FB),
-                    ),
-                textTheme: ThemeData.dark().textTheme.apply(
-                      fontFamily: 'SFProText',
-                      bodyColor: Color(0xFFF3F7FB),
-                      displayColor: Color(0xFFF3F7FB),
-                    ),
-              ),
-            ),
-            child: Icon(
-              LineAwesomeIcons.moon,
-              size: ScreenUtil().setSp(10.w * 3),
-            ),
-          ),
-        );
-      },
-    );
-
     var header = Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         SizedBox(width: 10.w * 3),
-        Icon(
-          LineAwesomeIcons.arrow_left,
-          size: ScreenUtil().setSp(10.w * 3),
-        ),
         profileInfo,
-        themeSwitcher,
         SizedBox(width: 10.w * 3),
       ],
     );
