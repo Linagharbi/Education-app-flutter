@@ -1,7 +1,9 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:education_app/src/screens/bloc_navigation/navigation_bloc.dart';
+import 'package:education_app/src/screens/pages/profile_list_item.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class ProfilePage extends StatefulWidget with NavigationStates {
   @override
@@ -9,349 +11,191 @@ class ProfilePage extends StatefulWidget with NavigationStates {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
-  //Circular Image
-  Positioned myImages(String images) {
-    return Positioned(
-      top: 0.0,
-      left: 100.0,
-      child: Container(
-          width: 160.0,
-          height: 160.0,
-          decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              image: new DecorationImage(
-                  fit: BoxFit.fill, image: new NetworkImage(images)))),
-    );
-  }
-
-  _openMap() async {
-    const url =
-        'https://www.google.com/maps/place/Ise+Middle+School+High+School/@36.4441716,10.7226932,17z/data=!3m1!4b1!4m5!3m4!1s0x1302997a09478911:0xc0aa4e0e2087b56d!8m2!3d36.4441673!4d10.7248819';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-  _openURL() async {
-    const url = 'https://www.ise-college-lycee.com/';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-  // _linkedinURL(String $profileName) async {
-  //   var url = 'https://linkedin.com/' + $profileName;
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
-
-  _facebookURL(String $profileName) async {
-    var url = 'https://www.facebook.com/ISEcollegelycee';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-  //Center Widget
-  Center profilePage(String profileName, String location, String webLink) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Container(
-          width: 300.0,
-          height: 300.0,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.0),
-            color: Color(0xffffffff),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 24.0),
-                    child: Text(
-                      profileName,
-                      style: TextStyle(
-                          color: new Color(0xFF40BAD5),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24.0),
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: <Widget>[
-                            Icon(FontAwesomeIcons.mapMarker,
-                                color: Color(0xffed1e79), size: 20.0),
-                            SizedBox(width: 10.0),
-                            InkWell(
-                              child: Text(
-                                location,
-                                style: TextStyle(
-                                    color: new Color(0xFF40BAD5),
-                                    fontSize: 20.0),
-                              ),
-                              onTap: () {
-                                _openMap();
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Icon(FontAwesomeIcons.link,
-                          color: Color(0xffed1e79), size: 20.0),
-                      SizedBox(width: 10.0),
-                      InkWell(
-                        child: Text(
-                          webLink,
-                          style: TextStyle(
-                              color: new Color(0xFF40BAD5), fontSize: 20.0),
-                        ),
-                        onTap: () {
-                          _openURL();
-                        },
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            child: Material(
-                                color: new Color(0xffffffff),
-                                shape: CircleBorder(),
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(FontAwesomeIcons.facebook,
-                                      color: Color(0xff125DDE), size: 35.0),
-                                )),
-                            onTap: () {
-                              _facebookURL("ise");
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      key: _scaffoldKey,
-      body: Column(
+    ScreenUtil.init(context, height: 896, width: 414, allowFontScaling: true);
+
+    var profileInfo = Expanded(
+      child: Column(
         children: <Widget>[
-          _myAppBar3(),
-          Expanded(
-            flex: 4,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                gradient: new LinearGradient(
-                  colors: [
-                    const Color(0xFF40BAD5),
-                    const Color(0xffffffff),
-                  ],
-                  begin: Alignment.centerRight,
-                  end: new Alignment(-1.0, -1.0),
+          Container(
+            height: 10.w * 10,
+            width: 10.w * 10,
+            margin: EdgeInsets.only(top: 10.w * 3),
+            child: Stack(
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 10.w * 5,
+                  backgroundImage: AssetImage('assets/images/avatar.png'),
                 ),
-              ),
-              child: Stack(
-                children: <Widget>[
-                  profilePage("ISE Collège & Lycée", "Nabeul", "Site Web"),
-                  ProfileImageWidget(),
-                  // backPage(),
-                  // nextPage(),
-                ],
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Container(
+                    height: 10.w * 2.5,
+                    width: 10.w * 2.5,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).accentColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      heightFactor: 10.w * 1.5,
+                      widthFactor: 10.w * 1.5,
+                      child: Icon(
+                        LineAwesomeIcons.pen,
+                        color: Color(0xFF212121),
+                        size: ScreenUtil().setSp(10.w * 1.5),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 10.w * 2),
+          Text(
+            'Koussay Aloui',
+            style: TextStyle(
+              fontSize: ScreenUtil().setSp(10.w * 1.7),
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(height: 10.w * 0.5),
+          Text(
+            'Koussayaloui@gmail.com',
+            style: TextStyle(
+              fontSize: ScreenUtil().setSp(10.w * 1.3),
+              fontWeight: FontWeight.w100,
+            ),
+          ),
+          SizedBox(height: 10.w * 2),
+          Container(
+            height: 10.w * 4,
+            width: 10.w * 20,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.w * 3),
+              color: Theme.of(context).accentColor,
+            ),
+            child: Center(
+              child: Text(
+                '9 Class',
+                style: TextStyle(
+                  fontSize: ScreenUtil().setSp(10.w * 1.5),
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF212121),
+                ),
               ),
             ),
           ),
         ],
       ),
     );
-  }
 
-  Widget _myAppBar3() {
-    return Container(
-      height: 70.0,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        gradient: new LinearGradient(
-          colors: [
-            const Color(0xFF40BAD5),
-            const Color(0xffffffff),
-          ],
-          begin: Alignment.centerRight,
-          end: new Alignment(-1.0, -1.0),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: Center(
-            child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.arrowLeft,
-                      color: Colors.white,
+    var themeSwitcher = ThemeSwitcher(
+      builder: (context) {
+        return AnimatedCrossFade(
+          duration: Duration(milliseconds: 200),
+          crossFadeState:
+              ThemeProvider.of(context).brightness == Brightness.dark
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+          firstChild: GestureDetector(
+            onTap: () => ThemeSwitcher.of(context).changeTheme(
+              theme: ThemeData(
+                brightness: Brightness.light,
+                fontFamily: 'SFProText',
+                primaryColor: Color(0xFFFFFFFF),
+                canvasColor: Color(0xFFFFFFFF),
+                backgroundColor: Color(0xFFF3F7FB),
+                accentColor: Color(0xFFFFC107),
+                iconTheme: ThemeData.light().iconTheme.copyWith(
+                      color: Color(0xFF373737),
                     ),
-                    onPressed: () {
-                      //
-                    }),
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: Container(
-                child: Text(
-                  'Contact',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20.0),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.search,
-                      color: Colors.white,
-                      size: 20.0,
+                textTheme: ThemeData.light().textTheme.apply(
+                      fontFamily: 'SFProText',
+                      bodyColor: Color(0xFF373737),
+                      displayColor: Color(0xFF373737),
                     ),
-                    onPressed: () {
-                      //
-                    }),
               ),
             ),
-          ],
-        )),
-      ),
+            child: Icon(
+              LineAwesomeIcons.sun,
+              size: ScreenUtil().setSp(10.w * 3),
+            ),
+          ),
+          secondChild: GestureDetector(
+            onTap: () => ThemeSwitcher.of(context).changeTheme(
+              theme: ThemeData(
+                brightness: Brightness.dark,
+                fontFamily: 'SFProText',
+                primaryColor: Color(0xFF212121),
+                canvasColor: Color(0xFF212121),
+                backgroundColor: Color(0xFF373737),
+                accentColor: Color(0xFFFFC107),
+                iconTheme: ThemeData.dark().iconTheme.copyWith(
+                      color: Color(0xFFF3F7FB),
+                    ),
+                textTheme: ThemeData.dark().textTheme.apply(
+                      fontFamily: 'SFProText',
+                      bodyColor: Color(0xFFF3F7FB),
+                      displayColor: Color(0xFFF3F7FB),
+                    ),
+              ),
+            ),
+            child: Icon(
+              LineAwesomeIcons.moon,
+              size: ScreenUtil().setSp(10.w * 3),
+            ),
+          ),
+        );
+      },
     );
-  }
-}
 
-class FavoriteWidget extends StatefulWidget {
-  @override
-  _FavoriteWidgetState createState() => _FavoriteWidgetState();
-}
-
-class _FavoriteWidgetState extends State<FavoriteWidget> {
-  bool _isFavorited = true;
-  int _favoriteCount = 100;
-
-  void _toggleFavorite() {
-    setState(() {
-      if (_isFavorited) {
-        _favoriteCount -= 1;
-        _isFavorited = false;
-      } else {
-        _favoriteCount += 1;
-        _isFavorited = true;
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          child: IconButton(
-            icon: (_isFavorited
-                ? Icon(Icons.favorite)
-                : Icon(Icons.favorite_border)),
-            color: Color(0xffed1e79),
-            onPressed: _toggleFavorite,
-          ),
+    var header = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(width: 10.w * 3),
+        Icon(
+          LineAwesomeIcons.arrow_left,
+          size: ScreenUtil().setSp(10.w * 3),
         ),
-        SizedBox(
-          width: 35,
-          child: Container(
-            child: Text(
-              '$_favoriteCount',
-              style: TextStyle(color: new Color(0xFF40BAD5), fontSize: 18.0),
-            ),
-          ),
-        ),
+        profileInfo,
+        themeSwitcher,
+        SizedBox(width: 10.w * 3),
       ],
     );
-  }
-}
 
-class ProfileImageWidget extends StatefulWidget {
-  @override
-  _ProfileImageWidgetState createState() => _ProfileImageWidgetState();
-}
-
-class _ProfileImageWidgetState extends State<ProfileImageWidget> {
-  var height = 160.0;
-  var width = 160.0;
-  var shape = BoxShape.circle;
-
-  void _changeShape() {
-    setState(() {
-      shape = BoxShape.rectangle;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: 30.0,
-      left: 120.0,
-      child: GestureDetector(
-        onTap: () {
-          _changeShape();
-        },
-        child: Container(
-          width: width,
-          height: height,
-          decoration: new BoxDecoration(
-            shape: shape,
-            image: new DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage('assets/images/logo.png'),
+    return ThemeSwitchingArea(
+      child: Builder(
+        builder: (context) {
+          return Scaffold(
+            body: Column(
+              children: <Widget>[
+                SizedBox(height: 10.w * 5),
+                header,
+                Expanded(
+                  child: ListView(
+                    children: <Widget>[
+                      ProfileListItem(
+                        icon: LineAwesomeIcons.phone,
+                        text: '50505050',
+                      ),
+                      ProfileListItem(
+                        icon: LineAwesomeIcons.cog,
+                        text: 'Settings',
+                      ),
+                      ProfileListItem(
+                        icon: LineAwesomeIcons.alternate_sign_out,
+                        text: 'Logout',
+                        hasNavigation: false,
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
