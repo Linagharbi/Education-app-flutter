@@ -1,5 +1,8 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:education_app/src/screens/bloc_navigation/navigation_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,334 +12,275 @@ class ContactPage extends StatefulWidget with NavigationStates {
 }
 
 class _ContactPageState extends State<ContactPage> {
-  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
-  //Circular Image
-  Positioned myImages(String images) {
-    return Positioned(
-      top: 0.0,
-      left: 100.0,
-      child: Container(
-          width: 160.0,
-          height: 160.0,
-          decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              image: new DecorationImage(
-                  fit: BoxFit.fill, image: new NetworkImage(images)))),
+  @override
+  Widget build(BuildContext context) {
+    return ThemeProvider(
+      initTheme: ThemeData(
+        brightness: Brightness.light,
+        fontFamily: 'SFProText',
+        primaryColor: Color(0xFFFFFFFF),
+        canvasColor: Color(0xFFFFFFFF),
+        backgroundColor: Color(0xFFF3F7FB),
+        accentColor: Color(0xFFFFC107),
+        iconTheme: ThemeData.dark().iconTheme.copyWith(
+              color: Color(0xFF373737),
+            ),
+        textTheme: ThemeData.dark().textTheme.apply(
+              fontFamily: 'SFProText',
+              bodyColor: Color(0xFF373737),
+              displayColor: Color(0xFF373737),
+            ),
+      ),
+      child: Builder(
+        builder: (context) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeProvider.of(context),
+            home: ProfileScreen(),
+          );
+        },
+      ),
     );
   }
+}
 
-  _openMap() async {
-    const url =
-        'https://www.google.com/maps/place/Ise+Middle+School+High+School/@36.4441716,10.7226932,17z/data=!3m1!4b1!4m5!3m4!1s0x1302997a09478911:0xc0aa4e0e2087b56d!8m2!3d36.4441673!4d10.7248819';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+Future<void> makeCall(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
+}
 
-  _openURL() async {
-    const url = 'https://www.ise-college-lycee.com/';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+Future<void> launchBrowser(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'});
+  } else {
+    throw 'Could not launch $url';
   }
+}
 
-  _facebookURL(String $profileName) async {
-    var url = 'https://www.facebook.com/ISEcollegelycee';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+Future<void> sendMail(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
+}
 
-  //Center Widget
-  Center profilePage(
-      String profileName, String location, String webLink, String phone) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Container(
-          width: 300.0,
-          height: 300.0,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.0),
-            color: Color(0xffffffff),
+Future<void> openMap(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+// _openURL() async {
+//   const url = 'https://www.ise-college-lycee.com/';
+//   if (await canLaunch(url)) {
+//     await launch(url);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }
+
+_facebookURL(String $profileName) async {
+  var url = 'https://www.facebook.com/ISEcollegelycee';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    ScreenUtil.init(context, height: 896, width: 414, allowFontScaling: true);
+
+    var profileInfo = Expanded(
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 10.w * 10,
+            width: 10.w * 10,
+            margin: EdgeInsets.only(top: 10.w * 3),
+            child: Stack(
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 10.w * 5,
+                  backgroundImage: AssetImage('assets/images/logo.png'),
+                ),
+              ],
+            ),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          SizedBox(height: 10.w * 2),
+          Text(
+            'ISE Collège & Lycée',
+            style: TextStyle(
+              fontSize: ScreenUtil().setSp(10.w * 1.7),
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF212121),
+            ),
+          ),
+          SizedBox(height: 10.w * 2),
+        ],
+      ),
+    );
+
+    var header = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(width: 10.w * 3),
+        profileInfo,
+        SizedBox(width: 10.w * 3),
+      ],
+    );
+
+    return ThemeSwitchingArea(
+      child: Builder(
+        builder: (context) {
+          return Scaffold(
+              body: Column(
             children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 24.0),
-                    child: Text(
-                      profileName,
-                      style: TextStyle(
-                          color: new Color(0xff1a237e),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24.0),
+              SizedBox(height: 10.w * 5),
+              header,
+              Container(
+                width: double.infinity,
+                margin: EdgeInsets.fromLTRB(20, 20, 20, 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withAlpha(100),
+                      blurRadius: 10.0,
                     ),
+                  ],
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
                   ),
-                  Row(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
+                        padding: EdgeInsets.only(
+                          left: 20,
+                          top: 10,
+                          bottom: 10,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            Icon(FontAwesomeIcons.mapMarker,
-                                color: Colors.yellow[700], size: 20.0),
-                            SizedBox(width: 10.0),
-                            InkWell(
-                              child: Text(
-                                location,
-                                style: TextStyle(
-                                    color: new Color(0xff1a237e),
-                                    fontSize: 20.0),
-                              ),
-                              onTap: () {
-                                _openMap();
-                              },
+                            Row(
+                              children: <Widget>[
+                                Icon(FontAwesomeIcons.phone,
+                                    color: Colors.yellow[700], size: 18.0),
+                                SizedBox(width: 12.0),
+                                InkWell(
+                                  child: Text(
+                                    "Numéro téléphone",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16.0),
+                                  ),
+                                  onTap: () {
+                                    makeCall('tel:+21699555222');
+                                  },
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 11.0),
+                            Row(
+                              children: <Widget>[
+                                Icon(FontAwesomeIcons.link,
+                                    color: Colors.yellow[700], size: 18.0),
+                                SizedBox(width: 10.0),
+                                InkWell(
+                                  child: Text(
+                                    "Site Web",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16.0),
+                                  ),
+                                  onTap: () {
+                                    launchBrowser(
+                                        'https://www.ise-college-lycee.com/');
+                                  },
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 11.0),
+                            Row(
+                              children: <Widget>[
+                                Icon(FontAwesomeIcons.mailBulk,
+                                    color: Colors.yellow[700], size: 18.0),
+                                SizedBox(width: 10.0),
+                                InkWell(
+                                  child: Text(
+                                    "Gmail",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16.0),
+                                  ),
+                                  onTap: () {
+                                    sendMail("mailto:linagharbi8@gmail.com?");
+                                  },
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 11.0),
+                            Row(
+                              children: <Widget>[
+                                Icon(FontAwesomeIcons.mapMarker,
+                                    color: Colors.yellow[700], size: 18.0),
+                                SizedBox(width: 10.0),
+                                InkWell(
+                                  child: Text(
+                                    "Localisation",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16.0),
+                                  ),
+                                  onTap: () {
+                                    openMap(
+                                        'https://www.google.com/maps/place/Ise+Middle+School+High+School/@36.4441716,10.7226932,17z/data=!3m1!4b1!4m5!3m4!1s0x1302997a09478911:0xc0aa4e0e2087b56d!8m2!3d36.4441673!4d10.7248819');
+                                  },
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 11.0),
+                            Row(
+                              children: <Widget>[
+                                Icon(FontAwesomeIcons.facebook,
+                                    color: Colors.yellow[700], size: 18.0),
+                                SizedBox(width: 10.0),
+                                InkWell(
+                                  child: Text(
+                                    "Facebook",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16.0),
+                                  ),
+                                  onTap: () {
+                                    _facebookURL("ise");
+                                  },
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  Row(
-                    children: <Widget>[
-                      Icon(FontAwesomeIcons.link,
-                          color: Colors.yellow[700], size: 20.0),
-                      SizedBox(width: 10.0),
-                      InkWell(
-                        child: Text(
-                          webLink,
-                          style: TextStyle(
-                              color: new Color(0xff1a237e), fontSize: 20.0),
-                        ),
-                        onTap: () {
-                          _openURL();
-                        },
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 9.0),
-                  Row(
-                    children: <Widget>[
-                      Icon(FontAwesomeIcons.phone,
-                          color: Colors.yellow[700], size: 20.0),
-                      SizedBox(width: 10.0),
-                      InkWell(
-                        child: Text(
-                          phone,
-                          style: TextStyle(
-                              color: new Color(0xff1a237e), fontSize: 20.0),
-                        ),
-                        onTap: () {},
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            child: Material(
-                                color: new Color(0xffffffff),
-                                shape: CircleBorder(),
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(FontAwesomeIcons.facebook,
-                                      color: Color(0xff1a237e), size: 35.0),
-                                )),
-                            onTap: () {
-                              _facebookURL("ise");
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      key: _scaffoldKey,
-      body: Column(
-        children: <Widget>[
-          _myAppBar3(),
-          Expanded(
-            flex: 4,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                gradient: new LinearGradient(
-                  colors: [
-                    const Color(0xffffffff),
-                    const Color(0xffffffff),
-                  ],
-                  begin: Alignment.centerRight,
-                  end: new Alignment(-1.0, -1.0),
-                ),
-              ),
-              child: Stack(
-                children: <Widget>[
-                  profilePage("ISE Collège & Lycée", "Adresse", "Site Web",
-                      "99 555 222"),
-                  ProfileImageWidget(),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _myAppBar3() {
-    return Container(
-      height: 70.0,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        gradient: new LinearGradient(
-          colors: [
-            const Color(0xffffffff),
-            const Color(0xffffffff),
-          ],
-          begin: Alignment.centerRight,
-          end: new Alignment(-1.0, -1.0),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: Center(
-            child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            // Spacer(),
-            SizedBox(width: 165.0),
-            Expanded(
-              flex: 5,
-              child: Container(
-                child: Text(
-                  'Contact',
-                  style: TextStyle(
-                    color: Colors.yellow[700],
-                    // color: Color(0xff1a237e),
-
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20.0,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        )),
-      ),
-    );
-  }
-}
-
-class FavoriteWidget extends StatefulWidget {
-  @override
-  _FavoriteWidgetState createState() => _FavoriteWidgetState();
-}
-
-class _FavoriteWidgetState extends State<FavoriteWidget> {
-  bool _isFavorited = true;
-  int _favoriteCount = 100;
-
-  void _toggleFavorite() {
-    setState(() {
-      if (_isFavorited) {
-        _favoriteCount -= 1;
-        _isFavorited = false;
-      } else {
-        _favoriteCount += 1;
-        _isFavorited = true;
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          child: IconButton(
-            icon: (_isFavorited
-                ? Icon(Icons.favorite)
-                : Icon(Icons.favorite_border)),
-            color: Color(0xFF40BAD5),
-            onPressed: _toggleFavorite,
-          ),
-        ),
-        SizedBox(
-          width: 35,
-          child: Container(
-            child: Text(
-              '$_favoriteCount',
-              style: TextStyle(color: new Color(0xFF40BAD5), fontSize: 18.0),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class ProfileImageWidget extends StatefulWidget {
-  @override
-  _ProfileImageWidgetState createState() => _ProfileImageWidgetState();
-}
-
-class _ProfileImageWidgetState extends State<ProfileImageWidget> {
-  var height = 160.0;
-  var width = 160.0;
-  var shape = BoxShape.circle;
-
-  void _changeShape() {
-    setState(() {
-      shape = BoxShape.rectangle;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: 30.0,
-      left: 120.0,
-      child: GestureDetector(
-        onTap: () {
-          _changeShape();
+          ));
         },
-        child: Container(
-          width: width,
-          height: height,
-          decoration: new BoxDecoration(
-            shape: shape,
-            image: new DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage('assets/images/logo.png'),
-            ),
-          ),
-        ),
       ),
     );
   }
