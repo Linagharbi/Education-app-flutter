@@ -184,7 +184,7 @@ class ProfileScreen extends StatelessWidget {
                               children: <Widget>[
                                 Icon(FontAwesomeIcons.phone,
                                     color: Colors.yellow[700], size: 18.0),
-                                SizedBox(width: 12.0),
+                                SizedBox(width: 14.0),
                                 InkWell(
                                   child: Text(
                                     "Numéro téléphone",
@@ -202,7 +202,7 @@ class ProfileScreen extends StatelessWidget {
                               children: <Widget>[
                                 Icon(FontAwesomeIcons.link,
                                     color: Colors.yellow[700], size: 18.0),
-                                SizedBox(width: 10.0),
+                                SizedBox(width: 14.0),
                                 InkWell(
                                   child: Text(
                                     "Site Web",
@@ -221,7 +221,7 @@ class ProfileScreen extends StatelessWidget {
                               children: <Widget>[
                                 Icon(FontAwesomeIcons.mailBulk,
                                     color: Colors.yellow[700], size: 18.0),
-                                SizedBox(width: 10.0),
+                                SizedBox(width: 14.0),
                                 InkWell(
                                   child: Text(
                                     "Gmail",
@@ -239,7 +239,7 @@ class ProfileScreen extends StatelessWidget {
                               children: <Widget>[
                                 Icon(FontAwesomeIcons.mapMarker,
                                     color: Colors.yellow[700], size: 18.0),
-                                SizedBox(width: 10.0),
+                                SizedBox(width: 14.0),
                                 InkWell(
                                   child: Text(
                                     "Localisation",
@@ -258,7 +258,7 @@ class ProfileScreen extends StatelessWidget {
                               children: <Widget>[
                                 Icon(FontAwesomeIcons.facebook,
                                     color: Colors.yellow[700], size: 18.0),
-                                SizedBox(width: 10.0),
+                                SizedBox(width: 14.0),
                                 InkWell(
                                   child: Text(
                                     "Facebook",
