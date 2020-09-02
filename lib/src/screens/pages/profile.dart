@@ -13,6 +13,39 @@ class ProfilePage extends StatefulWidget with NavigationStates {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    return ThemeProvider(
+      initTheme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'SFProText',
+        primaryColor: Color(0xFF212121),
+        canvasColor: Color(0xFF212121),
+        backgroundColor: Color(0xFF373737),
+        accentColor: Color(0xFFFFC107),
+        iconTheme: ThemeData.dark().iconTheme.copyWith(
+              color: Color(0xFFF3F7FB),
+            ),
+        textTheme: ThemeData.dark().textTheme.apply(
+              fontFamily: 'SFProText',
+              bodyColor: Color(0xFFF3F7FB),
+              displayColor: Color(0xFFF3F7FB),
+            ),
+      ),
+      child: Builder(
+        builder: (context) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeProvider.of(context),
+            home: ProfileScreen(),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     ScreenUtil.init(context, height: 896, width: 414, allowFontScaling: true);
 
     var profileInfo = Expanded(
