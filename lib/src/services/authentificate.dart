@@ -55,27 +55,27 @@ class Authentificate {
 
       // FIXME: Use this in production
       // DEVONLY:
-      User myUser = new User(
-        id: 33,
-        firstName: "admin",
-        lastName: "admin",
-        email: "admin@admin.com",
-        login: "admin",
-        password: "admin",
-        nature: "parent",
-      );
+      // User myUser = new User(
+      //   id: 33,
+      //   firstName: "admin",
+      //   lastName: "admin",
+      //   email: "admin@admin.com",
+      //   login: "admin",
+      //   password: "admin",
+      //   nature: "parent",
+      // );
       // PRODUCTION:
       // Check connection to website before proceeding any further
-      // if (!(await _httpService.checkConnection())) {
-      //   displayAlert(
-      //     context,
-      //     "Connection error",
-      //     "An issue occured while connecting to the server",
-      //   );
-      //   return;
-      // }
-      // // Get the user with the correct credentials
-      // User myUser = await getUserFromCreds(email, password);
+      if (!(await _httpService.checkConnection())) {
+        displayAlert(
+          context,
+          "Connection error",
+          "An issue occured while connecting to the server",
+        );
+        return;
+      }
+      // Get the user with the correct credentials
+      User myUser = await getUserFromCreds(email, password);
       // FIXME: Use this in production
       final loggedUser = Provider.of<LoggedUser>(context, listen: false);
 
