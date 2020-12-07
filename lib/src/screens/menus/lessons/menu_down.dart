@@ -29,14 +29,17 @@ class _MenuState extends State<Menu> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.collections_bookmark),
+            // ignore: deprecated_member_use
             title: Text('Cours'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.content_paste),
+            // ignore: deprecated_member_use
             title: Text('Exercices'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chrome_reader_mode),
+            // ignore: deprecated_member_use
             title: Text('Devoirs'),
           ),
         ],

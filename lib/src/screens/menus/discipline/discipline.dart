@@ -31,18 +31,22 @@ class _DisciplineState extends State<Discipline> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.timer),
+            // ignore: deprecated_member_use
             title: Text('Retards'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.alarm_off),
+            // ignore: deprecated_member_use
             title: Text('Absences'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
+            // ignore: deprecated_member_use
             title: Text('Blâmes'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.warning), //perm_identity
+            // ignore: deprecated_member_use
             title: Text('Avertiss.'),
           ),
         ],

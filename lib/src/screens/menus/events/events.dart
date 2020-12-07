@@ -26,10 +26,12 @@ class _EventsState extends State<Events> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.event_note),
+            // ignore: deprecated_member_use
             title: Text('Events'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.palette), //perm_identity
+            // ignore: deprecated_member_use
             title: Text('Club'),
           ),
         ],

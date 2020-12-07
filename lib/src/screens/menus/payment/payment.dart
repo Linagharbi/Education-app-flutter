@@ -34,18 +34,22 @@ class _PaymentState extends State<Payment> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
+            // ignore: deprecated_member_use
             title: Text('Scolaire'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.restaurant_menu),
+            // ignore: deprecated_member_use
             title: Text('Cantine'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.directions_bus),
+            // ignore: deprecated_member_use
             title: Text('Bus'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.palette), //perm_identity
+            // ignore: deprecated_member_use
             title: Text('Club'),
           ),
         ],
